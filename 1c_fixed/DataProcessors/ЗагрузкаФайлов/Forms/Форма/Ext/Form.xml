@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<UsualGroup name="Основное" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основное</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ОсновноеРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<InputField name="ПутьКФайлу" id="3">
+					<DataPath>Объект.ПутьКФайлу</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ChoiceButton>true</ChoiceButton>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ПутьКФайлуКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ПутьКФайлуРасширеннаяПодсказка" id="5"/>
+					<Events>
+						<Event name="StartChoice">ПутьКФайлуНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<Button name="ПрочитатьФайл" id="51">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ПрочитатьФайл</CommandName>
+					<ExtendedTooltip name="ПрочитатьФайлРасширеннаяПодсказка" id="52"/>
+				</Button>
+				<Button name="ЗаписатьФайл" id="53">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ЗаписатьФайл</CommandName>
+					<ExtendedTooltip name="ЗаписатьФайлРасширеннаяПодсказка" id="54"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="leads" id="148">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.leads</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="leadsКонтекстноеМеню" id="149"/>
+			<AutoCommandBar name="leadsКоманднаяПанель" id="150"/>
+			<ExtendedTooltip name="leadsРасширеннаяПодсказка" id="151"/>
+			<SearchStringAddition name="leadsСтрокаПоиска" id="152">
+				<AdditionSource>
+					<Item>leads</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="leadsСтрокаПоискаКонтекстноеМеню" id="153"/>
+				<ExtendedTooltip name="leadsСтрокаПоискаРасширеннаяПодсказка" id="154"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="leadsСостояниеПросмотра" id="155">
+				<AdditionSource>
+					<Item>leads</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="leadsСостояниеПросмотраКонтекстноеМеню" id="156"/>
+				<ExtendedTooltip name="leadsСостояниеПросмотраРасширеннаяПодсказка" id="157"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="leadsУправлениеПоиском" id="158">
+				<AdditionSource>
+					<Item>leads</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="leadsУправлениеПоискомКонтекстноеМеню" id="159"/>
+				<ExtendedTooltip name="leadsУправлениеПоискомРасширеннаяПодсказка" id="160"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="leadsНомерСтроки" id="169">
+					<DataPath>Объект.leads.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="leadsНомерСтрокиКонтекстноеМеню" id="170"/>
+					<ExtendedTooltip name="leadsНомерСтрокиРасширеннаяПодсказка" id="171"/>
+				</LabelField>
+				<InputField name="leadslead_id" id="173">
+					<DataPath>Объект.leads.lead_id</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="leadslead_idКонтекстноеМеню" id="174"/>
+					<ExtendedTooltip name="leadslead_idРасширеннаяПодсказка" id="175"/>
+				</InputField>
+				<InputField name="leadscreated_at" id="177">
+					<DataPath>Объект.leads.created_at</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="leadscreated_atКонтекстноеМеню" id="178"/>
+					<ExtendedTooltip name="leadscreated_atРасширеннаяПодсказка" id="179"/>
+				</InputField>
+				<InputField name="leadssource" id="181">
+					<DataPath>Объект.leads.source</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="leadssourceКонтекстноеМеню" id="182"/>
+					<ExtendedTooltip name="leadssourceРасширеннаяПодсказка" id="183"/>
+				</InputField>
+				<InputField name="leadscurrent_stage" id="185">
+					<DataPath>Объект.leads.current_stage</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="leadscurrent_stageКонтекстноеМеню" id="186"/>
+					<ExtendedTooltip name="leadscurrent_stageРасширеннаяПодсказка" id="187"/>
+				</InputField>
+				<InputField name="leadsowner" id="189">
+					<DataPath>Объект.leads.manager_name</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="leadsownerКонтекстноеМеню" id="190"/>
+					<ExtendedTooltip name="leadsownerРасширеннаяПодсказка" id="191"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<Table name="lead_stages" id="74">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.lead_stages</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="lead_stagesКонтекстноеМеню" id="75"/>
+			<AutoCommandBar name="lead_stagesКоманднаяПанель" id="76"/>
+			<ExtendedTooltip name="lead_stagesРасширеннаяПодсказка" id="77"/>
+			<SearchStringAddition name="lead_stagesСтрокаПоиска" id="78">
+				<AdditionSource>
+					<Item>lead_stages</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="lead_stagesСтрокаПоискаКонтекстноеМеню" id="79"/>
+				<ExtendedTooltip name="lead_stagesСтрокаПоискаРасширеннаяПодсказка" id="80"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="lead_stagesСостояниеПросмотра" id="81">
+				<AdditionSource>
+					<Item>lead_stages</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="lead_stagesСостояниеПросмотраКонтекстноеМеню" id="82"/>
+				<ExtendedTooltip name="lead_stagesСостояниеПросмотраРасширеннаяПодсказка" id="83"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="lead_stagesУправлениеПоиском" id="84">
+				<AdditionSource>
+					<Item>lead_stages</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="lead_stagesУправлениеПоискомКонтекстноеМеню" id="85"/>
+				<ExtendedTooltip name="lead_stagesУправлениеПоискомРасширеннаяПодсказка" id="86"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="lead_stagesНомерСтроки" id="95">
+					<DataPath>Объект.lead_stages.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="lead_stagesНомерСтрокиКонтекстноеМеню" id="96"/>
+					<ExtendedTooltip name="lead_stagesНомерСтрокиРасширеннаяПодсказка" id="97"/>
+				</LabelField>
+				<InputField name="lead_stageslead_id" id="111">
+					<DataPath>Объект.lead_stages.lead_id</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="lead_stageslead_idКонтекстноеМеню" id="112"/>
+					<ExtendedTooltip name="lead_stageslead_idРасширеннаяПодсказка" id="113"/>
+				</InputField>
+				<InputField name="lead_stagesstage" id="99">
+					<DataPath>Объект.lead_stages.stage</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="lead_stagesstageКонтекстноеМеню" id="100"/>
+					<ExtendedTooltip name="lead_stagesstageРасширеннаяПодсказка" id="101"/>
+				</InputField>
+				<InputField name="lead_stagesentered_at" id="103">
+					<DataPath>Объект.lead_stages.entered_at</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="lead_stagesentered_atКонтекстноеМеню" id="104"/>
+					<ExtendedTooltip name="lead_stagesentered_atРасширеннаяПодсказка" id="105"/>
+				</InputField>
+				<InputField name="lead_stagesleft_at" id="107">
+					<DataPath>Объект.lead_stages.left_at</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="lead_stagesleft_atКонтекстноеМеню" id="108"/>
+					<ExtendedTooltip name="lead_stagesleft_atРасширеннаяПодсказка" id="109"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<Table name="sources" id="115">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.sources</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="sourcesКонтекстноеМеню" id="116"/>
+			<AutoCommandBar name="sourcesКоманднаяПанель" id="117"/>
+			<ExtendedTooltip name="sourcesРасширеннаяПодсказка" id="118"/>
+			<SearchStringAddition name="sourcesСтрокаПоиска" id="119">
+				<AdditionSource>
+					<Item>sources</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="sourcesСтрокаПоискаКонтекстноеМеню" id="120"/>
+				<ExtendedTooltip name="sourcesСтрокаПоискаРасширеннаяПодсказка" id="121"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="sourcesСостояниеПросмотра" id="122">
+				<AdditionSource>
+					<Item>sources</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="sourcesСостояниеПросмотраКонтекстноеМеню" id="123"/>
+				<ExtendedTooltip name="sourcesСостояниеПросмотраРасширеннаяПодсказка" id="124"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="sourcesУправлениеПоиском" id="125">
+				<AdditionSource>
+					<Item>sources</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="sourcesУправлениеПоискомКонтекстноеМеню" id="126"/>
+				<ExtendedTooltip name="sourcesУправлениеПоискомРасширеннаяПодсказка" id="127"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="sourcesНомерСтроки" id="136">
+					<DataPath>Объект.sources.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="sourcesНомерСтрокиКонтекстноеМеню" id="137"/>
+					<ExtendedTooltip name="sourcesНомерСтрокиРасширеннаяПодсказка" id="138"/>
+				</LabelField>
+				<InputField name="sourcescode_name" id="140">
+					<DataPath>Объект.sources.code_name</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="sourcescode_nameКонтекстноеМеню" id="141"/>
+					<ExtendedTooltip name="sourcescode_nameРасширеннаяПодсказка" id="142"/>
+				</InputField>
+				<InputField name="sourcesname" id="144">
+					<DataPath>Объект.sources.name</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="sourcesnameКонтекстноеМеню" id="145"/>
+					<ExtendedTooltip name="sourcesnameРасширеннаяПодсказка" id="146"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<Table name="contacts" id="238">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.contacts</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="contactsКонтекстноеМеню" id="239"/>
+			<AutoCommandBar name="contactsКоманднаяПанель" id="240"/>
+			<ExtendedTooltip name="contactsРасширеннаяПодсказка" id="241"/>
+			<SearchStringAddition name="contactsСтрокаПоиска" id="242">
+				<AdditionSource>
+					<Item>contacts</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="contactsСтрокаПоискаКонтекстноеМеню" id="243"/>
+				<ExtendedTooltip name="contactsСтрокаПоискаРасширеннаяПодсказка" id="244"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="contactsСостояниеПросмотра" id="245">
+				<AdditionSource>
+					<Item>contacts</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="contactsСостояниеПросмотраКонтекстноеМеню" id="246"/>
+				<ExtendedTooltip name="contactsСостояниеПросмотраРасширеннаяПодсказка" id="247"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="contactsУправлениеПоиском" id="248">
+				<AdditionSource>
+					<Item>contacts</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="contactsУправлениеПоискомКонтекстноеМеню" id="249"/>
+				<ExtendedTooltip name="contactsУправлениеПоискомРасширеннаяПодсказка" id="250"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="contactsНомерСтроки" id="259">
+					<DataPath>Объект.contacts.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="contactsНомерСтрокиКонтекстноеМеню" id="260"/>
+					<ExtendedTooltip name="contactsНомерСтрокиРасширеннаяПодсказка" id="261"/>
+				</LabelField>
+				<InputField name="contactslead_id" id="263">
+					<DataPath>Объект.contacts.lead_id</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="contactslead_idКонтекстноеМеню" id="264"/>
+					<ExtendedTooltip name="contactslead_idРасширеннаяПодсказка" id="265"/>
+				</InputField>
+				<InputField name="contactsfull_name" id="267">
+					<DataPath>Объект.contacts.full_name</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="contactsfull_nameКонтекстноеМеню" id="268"/>
+					<ExtendedTooltip name="contactsfull_nameРасширеннаяПодсказка" id="269"/>
+				</InputField>
+				<InputField name="contactsemail" id="271">
+					<DataPath>Объект.contacts.email</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="contactsemailКонтекстноеМеню" id="272"/>
+					<ExtendedTooltip name="contactsemailРасширеннаяПодсказка" id="273"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<Table name="employees" id="275">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.employees</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="employeesКонтекстноеМеню" id="276"/>
+			<AutoCommandBar name="employeesКоманднаяПанель" id="277"/>
+			<ExtendedTooltip name="employeesРасширеннаяПодсказка" id="278"/>
+			<SearchStringAddition name="employeesСтрокаПоиска" id="279">
+				<AdditionSource>
+					<Item>employees</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="employeesСтрокаПоискаКонтекстноеМеню" id="280"/>
+				<ExtendedTooltip name="employeesСтрокаПоискаРасширеннаяПодсказка" id="281"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="employeesСостояниеПросмотра" id="282">
+				<AdditionSource>
+					<Item>employees</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="employeesСостояниеПросмотраКонтекстноеМеню" id="283"/>
+				<ExtendedTooltip name="employeesСостояниеПросмотраРасширеннаяПодсказка" id="284"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="employeesУправлениеПоиском" id="285">
+				<AdditionSource>
+					<Item>employees</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="employeesУправлениеПоискомКонтекстноеМеню" id="286"/>
+				<ExtendedTooltip name="employeesУправлениеПоискомРасширеннаяПодсказка" id="287"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="employeesНомерСтроки" id="296">
+					<DataPath>Объект.employees.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="employeesНомерСтрокиКонтекстноеМеню" id="297"/>
+					<ExtendedTooltip name="employeesНомерСтрокиРасширеннаяПодсказка" id="298"/>
+				</LabelField>
+				<InputField name="employeesfull_name" id="300">
+					<DataPath>Объект.employees.full_name</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="employeesfull_nameКонтекстноеМеню" id="301"/>
+					<ExtendedTooltip name="employeesfull_nameРасширеннаяПодсказка" id="302"/>
+				</InputField>
+				<InputField name="employeesemail" id="304">
+					<DataPath>Объект.employees.email</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="employeesemailКонтекстноеМеню" id="305"/>
+					<ExtendedTooltip name="employeesemailРасширеннаяПодсказка" id="306"/>
+				</InputField>
+				<InputField name="employeesrole" id="308">
+					<DataPath>Объект.employees.role</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="employeesroleКонтекстноеМеню" id="309"/>
+					<ExtendedTooltip name="employeesroleРасширеннаяПодсказка" id="310"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ЗагрузкаФайлов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Columns>
+				<AdditionalColumns table="Объект.leads"/>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПрочитатьФайл" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочитать файл</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочитать файл</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПрочитатьФайл</Action>
+		</Command>
+		<Command name="ЗаписатьФайл" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать файл</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать файл</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаписатьФайл</Action>
+		</Command>
+	</Commands>
+</Form>

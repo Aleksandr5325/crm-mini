@@ -1,0 +1,937 @@
+openapi: 3.0.0
+info:
+  title: 1C:Enterprise CRM API
+  version: 1.0.0
+  description: ''
+servers:
+  - url: http://localhost
+paths:
+  /CRM_mini/hs/crm/leads:
+    get:
+      summary: List All Leads
+      responses:
+        '200':
+          description: 200 — Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  leads:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        lead_id:
+                          type: string
+                        created_at:
+                          type: string
+                        source:
+                          type: string
+                        current_stage:
+                          type: string
+                        manager_name:
+                          type: string
+                        note:
+                          type: string
+              example:
+                leads:
+                  - lead_id: '10'
+                    created_at: '2025-01-11T08:25:00'
+                    source: Прямой звонок
+                    current_stage: qualified
+                    manager_name: Наталья Михайлова
+                    note: ''
+                  - lead_id: '56'
+                    created_at: '2025-02-26T10:20:00'
+                    source: Прямой звонок
+                    current_stage: qualified
+                    manager_name: Мария Новикова
+                    note: ''
+                  - lead_id: '116'
+                    created_at: '2025-04-27T10:55:00'
+                    source: Прямой звонок
+                    current_stage: qualified
+                    manager_name: Ольга Кузнецова
+                    note: ''
+                  - lead_id: '176'
+                    created_at: '2025-06-26T12:55:00'
+                    source: Прямой звонок
+                    current_stage: qualified
+                    manager_name: Виктория Макарова
+                    note: ''
+        '400':
+          description: 400 — Invalid Filter
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: INVALID_FILTER
+                message: Invalid value for 'stage'
+      tags:
+        - Leads
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_stage:
+                  type: string
+                source:
+                  type: string
+                manager_name:
+                  type: string
+            example:
+              current_stage: qualified
+              source: Прямой звонок
+              manager_name: ''
+    post:
+      summary: Create Lead
+      responses:
+        '201':
+          description: 201 — Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lead_id:
+                    type: integer
+              example:
+                lead_id: Lead created successfully
+        '400':
+          description: 400 — Validation Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    error:
+                      type: string
+                    message:
+                      type: string
+              example:
+                - error: INVALID_FILTER
+                  message: Manager not found
+                - error: INVALID_FILTER
+                  message: Source not found
+                - error: INVALID_REQUEST
+                  message: Invalid date format for created_at.
+                - error: INVALID_FILTER
+                  message: Invalid stage
+                - error: INVALID_REQUEST
+                  message: Lead_id is required
+      tags:
+        - Leads
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lead_id:
+                  type: string
+                source:
+                  type: string
+                current_stage:
+                  type: string
+                manager_name:
+                  type: string
+                created_at:
+                  type: string
+                note:
+                  type: string
+                full_name:
+                  type: string
+                email:
+                  type: string
+                  format: email
+            example:
+              lead_id: '10076553'
+              source: Олимпиада
+              current_stage: new
+              manager_name: Евгений Орлов
+              created_at: '2026-04-07T10:00:00'
+              note: Красавчик
+              full_name: Иван Иванов
+              email: ivan.ivanov@example.com
+  /CRM_mini/hs/crm/leads/{id}:
+    get:
+      summary: Get Lead Details
+      parameters:
+        - name: token
+          in: header
+          schema:
+            type: string
+          example: 927df129-bad8-45c2-8223-84d39b9d0ec2
+      responses:
+        '200':
+          description: 200 — Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lead:
+                    type: object
+                    properties:
+                      lead_id:
+                        type: string
+                        format: utc-millisec
+                      created_at:
+                        type: string
+                        format: style
+                      source:
+                        type: string
+                      current_stage:
+                        type: string
+                      manager_name:
+                        type: string
+              example:
+                lead:
+                  lead_id: '1'
+                  created_at: '2025-01-02T09:15:00'
+                  source: Сайт
+                  current_stage: qualified
+                  manager_name: Александр Иванов
+        '404':
+          description: 404 — Lead Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: NOT_FOUND
+                message: Lead not found
+        default:
+          description: 400 - id required
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: INVALID_ID
+                message: Lead id is required
+      tags:
+        - Leads
+  /CRM_mini/hs/crm/stages:
+    get:
+      summary: List All Stages
+      responses:
+        '200':
+          description: 200 - Success
+          headers:
+            Server:
+              schema:
+                type: string
+              example: Microsoft-IIS/10.0
+            X-Powered-By:
+              schema:
+                type: string
+              example: ASP.NET
+            Date:
+              schema:
+                type: string
+              example: Wed, 08 Apr 2026 16:08:46 GMT
+            Content-Length:
+              schema:
+                type: integer
+              example: 132
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  stages:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        lead_id:
+                          type: string
+                        stage:
+                          type: string
+                        entered_at:
+                          type: string
+                        left_at:
+                          type: string
+              example:
+                stages:
+                  - lead_id: '4'
+                    stage: new
+                    entered_at: '2025-01-05T16:20:00'
+                    left_at: '2025-01-07T12:00:00'
+        '400':
+          description: 400 - Invalid Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: INVALID_REQUEST
+                message: Invalid date format for entered_at
+        '404':
+          description: 404 - Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: NOT_FOUND
+                message: Lead not found
+      tags:
+        - Stages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lead_id:
+                  type: string
+                stage:
+                  type: string
+                entered_at:
+                  type: string
+                left_at:
+                  type: string
+            example:
+              lead_id: '4'
+              stage: new
+              entered_at: ''
+              left_at: ''
+  /CRM_mini/hs/crm/sources:
+    get:
+      summary: List All Sources
+      responses:
+        '200':
+          description: 200 - Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sources:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code_name:
+                          type: string
+                        name:
+                          type: string
+              example:
+                sources:
+                  - code_name: aggregator
+                    name: Агрегатор
+                  - code_name: context
+                    name: Контекстная реклама
+                  - code_name: direct
+                    name: Прямой звонок
+                  - code_name: email
+                    name: Email-рассылка
+                  - code_name: event
+                    name: Мероприятие
+                  - code_name: olymp
+                    name: Олимпиада
+                  - code_name: other
+                    name: Другое
+                  - code_name: partner
+                    name: Партнёр
+                  - code_name: recommendation
+                    name: Рекомендация
+                  - code_name: referral
+                    name: Реферал
+                  - code_name: site
+                    name: Сайт
+                  - code_name: social
+                    name: Соцсети
+                  - code_name: usy
+                    name: usyyyyl
+                  - code_name: usyma
+                    name: usyyyyla
+                  - code_name: usymеaв
+                    name: '8'
+                  - code_name: ыввыв
+                    name: '8'
+                  - code_name: ыввыввы
+                    name: '8'
+        '404':
+          description: 404 - Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: NOT_FOUND
+                message: Source not found
+      tags:
+        - Sources
+    post:
+      summary: Create Source
+      responses:
+        '201':
+          description: 200 - Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: Source created successfully
+        '400':
+          description: 400 - Invalid Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: INVALID_REQUEST
+                message: Code_name is already exist
+        '403':
+          description: 403 —  Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: FORBIDDEN
+                message: Недостаточно прав
+      tags:
+        - Sources
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code_name:
+                  type: string
+                name:
+                  type: string
+            example:
+              code_name: ыввыввы
+              name: '8'
+  /CRM_mini/hs/crm/sources/{code}:
+    delete:
+      summary: Delete Source
+      responses:
+        '204':
+          description: 204 - Deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: Source deleted successfully
+        '400':
+          description: 400 - Invalid CodeName
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: INVALID_CODE_NAME
+                message: Code_name is required
+        '403':
+          description: 403 - Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: FORBIDDEN
+                message: Недостаточно прав для удаления источника
+        '404':
+          description: 404 - Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: NOT_FOUND
+                message: Source not found
+      tags:
+        - Sources
+  /CRM_mini/hs/crm/employees:
+    get:
+      summary: List All Employees
+      responses:
+        '200':
+          description: 200 - Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sources:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        full_name:
+                          type: string
+                        email:
+                          type: string
+                          format: email
+                        role:
+                          type: string
+              example:
+                sources:
+                  - full_name: Дмитрий Смирнов
+                    email: dmitry.smirnov@company.ru
+                    role: manager
+                  - full_name: Павел Морозов
+                    email: pavel.morozov@company.ru
+                    role: manager
+                  - full_name: Наталья Михайлова
+                    email: natalia.mikhailova@company.ru
+                    role: manager
+                  - full_name: Владимир Лебедев
+                    email: vladimir.lebedev@company.ru
+                    role: head
+                  - full_name: Юлия Семёнова
+                    email: yuliya.semenova@company.ru
+                    role: analyst
+                  - full_name: Сергей Попов
+                    email: sergey.popov@company.ru
+                    role: manager
+                  - full_name: Мария Новикова
+                    email: maria.novikova@company.ru
+                    role: manager
+                  - full_name: Татьяна Алексеева
+                    email: tatiana.alekseeva@company.ru
+                    role: analyst
+                  - full_name: Александр Иванов
+                    email: alexandr.ivanov@company.ru
+                    role: manager
+                  - full_name: Илья Соколов
+                    email: ilya.sokolov@company.ru
+                    role: manager
+                  - full_name: Виктория Макарова
+                    email: viktoriya.makarova@company.ru
+                    role: manager
+                  - full_name: Ксения Павлова
+                    email: kseniya.pavlova@company.ru
+                    role: manager
+                  - full_name: Ольга Кузнецова
+                    email: olga.kuznetsova@company.ru
+                    role: manager
+                  - full_name: Евгений Орлов
+                    email: evgeniy.orlov@company.ru
+                    role: manager
+                  - full_name: Светлана Борисова
+                    email: svetlana.borisova@company.ru
+                    role: manager
+                  - full_name: Елена Петрова
+                    email: elena.petrova@company.ru
+                    role: manager
+                  - full_name: Анна Васильева
+                    email: anna.vasilieva@company.ru
+                    role: manager
+                  - full_name: Андрей Фёдоров
+                    email: andrey.fedorov@company.ru
+                    role: head
+                  - full_name: Григорий Зайцев
+                    email: grigoriy.zaytsev@company.ru
+                    role: manager
+                  - full_name: Роман Григорьев
+                    email: roman.grigoriev@company.ru
+                    role: manager
+        '404':
+          description: 404 - Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: NOT_FOUND
+                message: Employee not found
+      tags:
+        - Employees
+    post:
+      summary: Create Employee
+      responses:
+        '201':
+          description: 201 - Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: Employee created successfully
+        '400':
+          description: 400 - Invalid Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: INVALID_REQUEST
+                message: email is required
+        '403':
+          description: 403 - Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: FORBIDDEN
+                message: Недостаточно прав
+      tags:
+        - Employees
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                role:
+                  type: string
+            example:
+              full_name: Саша Капустин
+              email: sasha@mail.ru
+              role: head
+  /CRM_mini/hs/crm/report:
+    get:
+      summary: GetAllData
+      responses:
+        '200':
+          description: 200 - Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  period:
+                    type: object
+                    properties:
+                      from:
+                        type: string
+                      to:
+                        type: string
+                  funnel:
+                    type: object
+                    properties:
+                      NewPercent:
+                        type: integer
+                      QualifiedPercent:
+                        type: number
+                      ProposalPercent:
+                        type: integer
+                      WonPercent:
+                        type: integer
+                      LostPercent:
+                        type: integer
+                  kpi:
+                    type: object
+                    properties:
+                      NewToQualified:
+                        type: integer
+                      NewToLost:
+                        type: integer
+                      QualifiedToProposal:
+                        type: integer
+                      QualifiedToLost:
+                        type: integer
+                      ProposalToWon:
+                        type: number
+                      ProposalToLost:
+                        type: number
+                  avgtime:
+                    type: object
+                    properties:
+                      new:
+                        type: number
+                      qualified:
+                        type: number
+                      proposal:
+                        type: number
+              example:
+                period:
+                  from: '2023-10-25T14:30:00'
+                  to: '2026-10-25T14:30:00'
+                funnel:
+                  NewPercent: 100
+                  QualifiedPercent: 80.5
+                  ProposalPercent: 69
+                  WonPercent: 29
+                  LostPercent: 20
+                kpi:
+                  NewToQualified: 100
+                  NewToLost: 0
+                  QualifiedToProposal: 100
+                  QualifiedToLost: 0
+                  ProposalToWon: 59.184
+                  ProposalToLost: 40.816
+                avgtime:
+                  new: 46.6
+                  qualified: 50.6
+                  proposal: 48.1
+        '400':
+          description: 400 - Bad Request
+          headers:
+            Server:
+              schema:
+                type: string
+              example: Microsoft-IIS/10.0
+            X-Powered-By:
+              schema:
+                type: string
+              example: ASP.NET
+            Date:
+              schema:
+                type: string
+              example: Thu, 09 Apr 2026 07:56:13 GMT
+            Content-Length:
+              schema:
+                type: integer
+              example: 76
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: INVALID_REQUEST
+                message: Invalid date format for End.
+      tags:
+        - Report
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                start:
+                  type: string
+                end:
+                  type: string
+            example:
+              start: '2023-10-25T14:30:00'
+              end: '2026-10-25T14:30:00'
+  /CRM_mini/hs/crm/auth/register:
+    post:
+      summary: Register
+      responses:
+        '400':
+          description: 400 - Invalid Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: INVALID_REQUEST
+                message: role is required
+        '409':
+          description: 409 - Conflict
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: CONFLICT
+                message: Пользователь с таким email уже существует
+      tags:
+        - Register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                email:
+                  type: string
+                role:
+                  type: string
+                password:
+                  type: string
+                  format: utc-millisec
+            example:
+              full_name: Админ
+              email: аdmin@f.ru
+              role: admin
+              password: '1'
+  /CRM_mini/hs/crm/auth/login:
+    post:
+      summary: Login
+      responses:
+        '400':
+          description: 400 - Invalid Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: INVALID_REQUEST
+                message: password is required
+        '401':
+          description: 401 - Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: UNAUTHORIZED
+                message: Неверный пароль
+      tags:
+        - Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+            example:
+              email: login@login.ru
+              password: ''
+  /CRM_mini/hs/crm/import:
+    post:
+      summary: Import
+      parameters:
+        - name: token
+          in: header
+          required: false
+          deprecated: false
+          schema: {}
+          example: ddeec265-3ab6-4e50-a70d-d976eb07f613
+      responses: {}
+      tags:
+        - Import
+  /CRM_mini/hs/crm/export:
+    post:
+      summary: Export
+      parameters:
+        - name: token
+          in: header
+          required: false
+          deprecated: false
+          schema: {}
+          example: 927df129-bad8-45c2-8223-84d39b9d0ec2
+      responses: {}
+      tags:
+        - Export
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example: "{\r\n    \"resource_type\": \"leads\",  // или \"lead_stages\"\r\n    \"manager\": \"elena.petrova@company.ru\",\r\n    \"catalog\": \"C:/Удалить\"\r\n}\r\n"

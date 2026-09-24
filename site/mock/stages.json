@@ -1,0 +1,8 @@
+[
+  { "code": "new",          "title": "Новый",                  "order": 1, "kind": "open" },
+  { "code": "qualified",    "title": "Квалификация",            "order": 2, "kind": "open" },
+  { "code": "proposal",     "title": "Коммерческое предложение", "order": 3, "kind": "open" },
+  { "code": "negotiation",  "title": "Переговоры",              "order": 4, "kind": "open" },
+  { "code": "won",          "title": "Закрыт: выигран",         "order": 5, "kind": "won"  },
+  { "code": "lost",         "title": "Закрыт: проигран",        "order": 6, "kind": "lost" }
+]

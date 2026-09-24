@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<HTTPService uuid="e3f8920f-64fa-417b-9229-23598842d259">
+		<Properties>
+			<Name>api</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Api</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<RootURL>crm</RootURL>
+			<ReuseSessions>AutoUse</ReuseSessions>
+			<SessionMaxAge>20</SessionMaxAge>
+		</Properties>
+		<ChildObjects>
+			<URLTemplate uuid="3dd6d108-e5d6-4018-a8a0-7411786442c3">
+				<Properties>
+					<Name>Leads</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Leads</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/leads</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="506f31c4-8c70-48be-bc55-0e05b0d2cd34">
+						<Properties>
+							<Name>ListLeads</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>List leads</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>LeadsListLeads</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="ba6061eb-4200-471d-a43e-2d990202b36f">
+						<Properties>
+							<Name>CreateLead</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Create lead</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>LeadsCreateLead</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="169a0c06-2eb0-4b0b-8f03-3b30f911faee">
+				<Properties>
+					<Name>Lead</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Lead</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/leads/{id}</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="4ad40e6f-b10c-4708-afd5-bead6aec746f">
+						<Properties>
+							<Name>GetLead</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Get lead</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>LeadGetLead</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="984014bc-0f77-49dd-a380-7543d6d3b3be">
+						<Properties>
+							<Name>UpdateLead</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Update lead</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>PUT</HTTPMethod>
+							<Handler>LeadUpdateLead</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="abc06f21-31c3-4ea5-86a7-0e6e68a518b7">
+						<Properties>
+							<Name>DeleteLead</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Delete lead</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>DELETE</HTTPMethod>
+							<Handler>LeadDeleteLead</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="33f84495-4120-4ae6-9cd2-c64beae44eee">
+						<Properties>
+							<Name>PostLead</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Post lead</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>LeadPostLead</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="de35e9e8-822d-4e48-bacc-56177aeee924">
+						<Properties>
+							<Name>OptionLead</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Option lead</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>OPTIONS</HTTPMethod>
+							<Handler>LeadOptionLead</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="ea391c8b-1505-4404-96a1-0b441dc05464">
+				<Properties>
+					<Name>Sources</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Sources</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/sources</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="e9ff2493-e370-4cc1-b87c-bb23061346fc">
+						<Properties>
+							<Name>ListSources</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>List sources</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>SourcesListSources</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="9ed837c2-0032-4351-a58a-b291c366dc01">
+						<Properties>
+							<Name>CreateSource</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Create source</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>SourcesCreateSource</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="1a83539c-96aa-4b9d-9673-c7296909168a">
+				<Properties>
+					<Name>Source</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Source</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/sources/{code_name}</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="b9159a87-ec21-49bc-8478-a9f033ddf236">
+						<Properties>
+							<Name>DeleteSource</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Delete source</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>DELETE</HTTPMethod>
+							<Handler>SourceDeleteSource</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="1c5ccc81-9437-4699-883b-de7f59c25140">
+						<Properties>
+							<Name>UpdateSource</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Update source</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>PUT</HTTPMethod>
+							<Handler>SourceUpdateSource</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="1fd3a1a4-a92d-4f59-a3c1-63fdca47dd67">
+				<Properties>
+					<Name>Employees</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Employees</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/employees</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="3fd8682c-a4b5-4894-a11f-abf691178aff">
+						<Properties>
+							<Name>ListEmployees</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>List employees</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>EmployeesListEmployees</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="b27a3e0e-4f03-46f5-8cad-26e6afbaf5cc">
+						<Properties>
+							<Name>CreateEmployee</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Create employee</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>EmployeesCreateEmployee</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="e1848fab-02e0-4538-991a-945085bdd0a3">
+				<Properties>
+					<Name>Stages</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Stages</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/stages</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="a256e438-9006-4772-9862-ac427d51870f">
+						<Properties>
+							<Name>ListStages</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>List stages</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>StagesListStages</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="5d89559a-5a69-49b8-a351-d0a211283f32">
+				<Properties>
+					<Name>Report</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Report</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/report</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="21c1bf23-b7ab-48c8-bb7c-2d2f4451c3db">
+						<Properties>
+							<Name>GetAllData</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Get all data</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>ReportGetAllData</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="2269a2ce-1977-4175-94a9-34f2c9afa994">
+				<Properties>
+					<Name>Register</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Register</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/auth/register</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="37d4c591-ae5d-416a-bd97-7b7f3de81843">
+						<Properties>
+							<Name>Register</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Register</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>Register</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="498e2605-9885-4df6-b5ce-2b5a1058e34c">
+				<Properties>
+					<Name>Login</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Login</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/auth/login</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="c56713c8-2cd8-4a7f-9bb8-a01e4920050d">
+						<Properties>
+							<Name>Login</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Login</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>Login</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="393dd77c-46ed-43d8-bbfb-d488d1c84676">
+				<Properties>
+					<Name>Import</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Import</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/import</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="33b34bc0-99fb-41f5-98a6-6ff9efcb1869">
+						<Properties>
+							<Name>Import</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Import</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>ImportImport</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="b4183ab6-e58d-4d4e-bd0e-e0604071db4c">
+						<Properties>
+							<Name>OPTIONS</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>OPTIONS</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>OPTIONS</HTTPMethod>
+							<Handler>ИмпортCSV.ImportOPTIONS</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="4d7e92fd-e0ce-4995-b7d3-d2f0d4ea2bc8">
+				<Properties>
+					<Name>Export</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Export</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/export</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="1953cccb-ec38-4add-a126-b531d9b1685e">
+						<Properties>
+							<Name>Export</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Export</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>ExportExport</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+		</ChildObjects>
+	</HTTPService>
+</MetaDataObject>

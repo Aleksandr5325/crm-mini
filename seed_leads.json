@@ -1,0 +1,3247 @@
+{
+  "import_id": "SEED-120",
+  "sources": [
+    {
+      "code": "site",
+      "name": "Сайт"
+    },
+    {
+      "code": "olymp",
+      "name": "Олимпиада"
+    },
+    {
+      "code": "aggregator",
+      "name": "Агрегатор"
+    },
+    {
+      "code": "referral",
+      "name": "Рекомендация"
+    },
+    {
+      "code": "event",
+      "name": "Мероприятие"
+    }
+  ],
+  "leads": [
+    {
+      "lead_id": "LEAD-001",
+      "created_at": "2026-04-16T17:03:00Z",
+      "source": "site",
+      "current_stage": "won",
+      "owner": "Петров П.П.",
+      "full_name": "Сидоров Егор Иванович",
+      "phone": "+79691682483",
+      "email": "lead1@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-16T17:03:00Z",
+          "left_at": "2026-04-20T18:03:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-20T18:03:00Z",
+          "left_at": "2026-04-23T07:03:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-23T07:03:00Z",
+          "left_at": "2026-04-30T09:03:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-30T09:03:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-002",
+      "created_at": "2026-03-07T11:02:00Z",
+      "source": "site",
+      "current_stage": "proposal",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Петров Сергей Андреевич",
+      "phone": "+79680557051",
+      "email": "lead2@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-07T11:02:00Z",
+          "left_at": "2026-03-10T20:02:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-10T20:02:00Z",
+          "left_at": "2026-03-18T00:02:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-18T00:02:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-003",
+      "created_at": "2026-04-17T09:35:00Z",
+      "source": "event",
+      "current_stage": "lost",
+      "owner": "Сидоров А.А.",
+      "full_name": "Смирнов Дмитрий Иванович",
+      "phone": "+79599936196",
+      "email": "lead3@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-17T09:35:00Z",
+          "left_at": "2026-04-19T04:35:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-19T04:35:00Z",
+          "left_at": "2026-04-23T19:35:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-23T19:35:00Z",
+          "left_at": "2026-05-03T08:35:00Z"
+        },
+        {
+          "stage": "lost",
+          "entered_at": "2026-05-03T08:35:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-004",
+      "created_at": "2026-04-01T09:36:00Z",
+      "source": "olymp",
+      "current_stage": "qualified",
+      "owner": "Сидоров А.А.",
+      "full_name": "Новикова Дарья Дмитриевна",
+      "phone": "+79883235912",
+      "email": "lead4@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-01T09:36:00Z",
+          "left_at": "2026-04-09T19:36:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-09T19:36:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-005",
+      "created_at": "2026-04-13T10:59:00Z",
+      "source": "referral",
+      "current_stage": "proposal",
+      "owner": "Сидоров А.А.",
+      "full_name": "Петров Алексей Андреевич",
+      "phone": "+79715281916",
+      "email": "lead5@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-13T10:59:00Z",
+          "left_at": "2026-04-15T07:59:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-15T07:59:00Z",
+          "left_at": "2026-04-18T00:59:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-18T00:59:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-006",
+      "created_at": "2026-04-28T09:53:00Z",
+      "source": "event",
+      "current_stage": "new",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Волкова Дарья Дмитриевна",
+      "phone": "+79389845088",
+      "email": "lead6@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-28T09:53:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-007",
+      "created_at": "2026-04-06T19:24:00Z",
+      "source": "event",
+      "current_stage": "won",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Петров Иван Дмитриевич",
+      "phone": "+79163301824",
+      "email": "lead7@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-06T19:24:00Z",
+          "left_at": "2026-04-12T19:24:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-12T19:24:00Z",
+          "left_at": "2026-04-21T06:24:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-21T06:24:00Z",
+          "left_at": "2026-04-25T01:24:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-25T01:24:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-008",
+      "created_at": "2026-05-03T09:10:00Z",
+      "source": "referral",
+      "current_stage": "qualified",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Смирнов Дмитрий Алексеевич",
+      "phone": "+79247023327",
+      "email": "lead8@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-03T09:10:00Z",
+          "left_at": "2026-05-12T17:10:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-12T17:10:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-009",
+      "created_at": "2026-03-20T09:11:00Z",
+      "source": "referral",
+      "current_stage": "new",
+      "owner": "Сидоров А.А.",
+      "full_name": "Смирнова Юлия Дмитриевна",
+      "phone": "+79807076898",
+      "email": "lead9@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-20T09:11:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-010",
+      "created_at": "2026-03-19T14:34:00Z",
+      "source": "aggregator",
+      "current_stage": "qualified",
+      "owner": "Петров П.П.",
+      "full_name": "Новиков Дмитрий Дмитриевич",
+      "phone": "+79841411915",
+      "email": "lead10@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-19T14:34:00Z",
+          "left_at": "2026-03-25T18:34:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-25T18:34:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-011",
+      "created_at": "2026-04-21T14:06:00Z",
+      "source": "referral",
+      "current_stage": "proposal",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Иванова Ксения Андреевна",
+      "phone": "+79324157762",
+      "email": "lead11@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-21T14:06:00Z",
+          "left_at": "2026-04-28T15:06:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-28T15:06:00Z",
+          "left_at": "2026-05-02T17:06:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-02T17:06:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-012",
+      "created_at": "2026-03-01T17:09:00Z",
+      "source": "site",
+      "current_stage": "proposal",
+      "owner": "Петров П.П.",
+      "full_name": "Петров Максим Андреевич",
+      "phone": "+79323287495",
+      "email": "lead12@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-01T17:09:00Z",
+          "left_at": "2026-03-08T12:09:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-08T12:09:00Z",
+          "left_at": "2026-03-09T14:09:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-09T14:09:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-013",
+      "created_at": "2026-04-30T09:07:00Z",
+      "source": "event",
+      "current_stage": "won",
+      "owner": "Иванова М.В.",
+      "full_name": "Сидорова Татьяна Дмитриевна",
+      "phone": "+79467902431",
+      "email": "lead13@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-30T09:07:00Z",
+          "left_at": "2026-05-09T00:07:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-09T00:07:00Z",
+          "left_at": "2026-05-17T09:07:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-17T09:07:00Z",
+          "left_at": "2026-05-19T13:07:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-05-19T13:07:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-014",
+      "created_at": "2026-05-07T13:09:00Z",
+      "source": "site",
+      "current_stage": "lost",
+      "owner": "Сидоров А.А.",
+      "full_name": "Новикова Мария Андреевна",
+      "phone": "+79656624390",
+      "email": "lead14@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-07T13:09:00Z",
+          "left_at": "2026-05-09T05:09:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-09T05:09:00Z",
+          "left_at": "2026-05-15T01:09:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-15T01:09:00Z",
+          "left_at": "2026-05-17T23:09:00Z"
+        },
+        {
+          "stage": "lost",
+          "entered_at": "2026-05-17T23:09:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-015",
+      "created_at": "2026-03-29T17:51:00Z",
+      "source": "event",
+      "current_stage": "won",
+      "owner": "Иванова М.В.",
+      "full_name": "Сидоров Максим Алексеевич",
+      "phone": "+79481782371",
+      "email": "lead15@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-29T17:51:00Z",
+          "left_at": "2026-04-03T00:51:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-03T00:51:00Z",
+          "left_at": "2026-04-10T23:51:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-10T23:51:00Z",
+          "left_at": "2026-04-15T05:51:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-15T05:51:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-016",
+      "created_at": "2026-04-14T15:51:00Z",
+      "source": "aggregator",
+      "current_stage": "won",
+      "owner": "Сидоров А.А.",
+      "full_name": "Иванова Татьяна Сергеевна",
+      "phone": "+79462642859",
+      "email": "lead16@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-14T15:51:00Z",
+          "left_at": "2026-04-21T02:51:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-21T02:51:00Z",
+          "left_at": "2026-04-23T09:51:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-23T09:51:00Z",
+          "left_at": "2026-04-25T16:51:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-25T16:51:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-017",
+      "created_at": "2026-04-19T19:48:00Z",
+      "source": "site",
+      "current_stage": "new",
+      "owner": "Петров П.П.",
+      "full_name": "Иванов Никита Дмитриевич",
+      "phone": "+79291686239",
+      "email": "lead17@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-19T19:48:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-018",
+      "created_at": "2026-03-11T19:10:00Z",
+      "source": "referral",
+      "current_stage": "new",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Волков Алексей Сергеевич",
+      "phone": "+79236406413",
+      "email": "lead18@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-11T19:10:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-019",
+      "created_at": "2026-04-14T10:35:00Z",
+      "source": "event",
+      "current_stage": "proposal",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Новиков Дмитрий Андреевич",
+      "phone": "+79904765445",
+      "email": "lead19@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-14T10:35:00Z",
+          "left_at": "2026-04-15T10:35:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-15T10:35:00Z",
+          "left_at": "2026-04-18T02:35:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-18T02:35:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-020",
+      "created_at": "2026-03-28T12:32:00Z",
+      "source": "site",
+      "current_stage": "qualified",
+      "owner": "Иванова М.В.",
+      "full_name": "Морозова Ольга Алексеевна",
+      "phone": "+79684494331",
+      "email": "lead20@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-28T12:32:00Z",
+          "left_at": "2026-04-03T20:32:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-03T20:32:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-021",
+      "created_at": "2026-05-04T10:34:00Z",
+      "source": "referral",
+      "current_stage": "new",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Сидоров Иван Дмитриевич",
+      "phone": "+79648195686",
+      "email": "lead21@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-04T10:34:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-022",
+      "created_at": "2026-03-23T10:30:00Z",
+      "source": "site",
+      "current_stage": "proposal",
+      "owner": "Сидоров А.А.",
+      "full_name": "Новиков Дмитрий Андреевич",
+      "phone": "+79832647724",
+      "email": "lead22@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-23T10:30:00Z",
+          "left_at": "2026-03-26T03:30:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-26T03:30:00Z",
+          "left_at": "2026-03-27T13:30:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-27T13:30:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-023",
+      "created_at": "2026-03-25T12:02:00Z",
+      "source": "site",
+      "current_stage": "won",
+      "owner": "Сидоров А.А.",
+      "full_name": "Новикова Елена Андреевна",
+      "phone": "+79642833537",
+      "email": "lead23@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-25T12:02:00Z",
+          "left_at": "2026-04-04T02:02:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-04T02:02:00Z",
+          "left_at": "2026-04-13T02:02:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-13T02:02:00Z",
+          "left_at": "2026-04-15T16:02:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-15T16:02:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-024",
+      "created_at": "2026-05-04T11:44:00Z",
+      "source": "event",
+      "current_stage": "proposal",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Кузнецова Татьяна Сергеевна",
+      "phone": "+79247246981",
+      "email": "lead24@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-04T11:44:00Z",
+          "left_at": "2026-05-10T04:44:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-10T04:44:00Z",
+          "left_at": "2026-05-14T18:44:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-14T18:44:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-025",
+      "created_at": "2026-04-24T09:13:00Z",
+      "source": "site",
+      "current_stage": "lost",
+      "owner": "Сидоров А.А.",
+      "full_name": "Морозов Никита Дмитриевич",
+      "phone": "+79335780633",
+      "email": "lead25@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-24T09:13:00Z",
+          "left_at": "2026-04-26T13:13:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-26T13:13:00Z",
+          "left_at": "2026-05-02T17:13:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-02T17:13:00Z",
+          "left_at": "2026-05-07T21:13:00Z"
+        },
+        {
+          "stage": "lost",
+          "entered_at": "2026-05-07T21:13:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-026",
+      "created_at": "2026-03-21T19:27:00Z",
+      "source": "olymp",
+      "current_stage": "won",
+      "owner": "Сидоров А.А.",
+      "full_name": "Петрова Юлия Сергеевна",
+      "phone": "+79492938523",
+      "email": "lead26@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-21T19:27:00Z",
+          "left_at": "2026-03-29T05:27:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-29T05:27:00Z",
+          "left_at": "2026-04-05T11:27:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-05T11:27:00Z",
+          "left_at": "2026-04-11T21:27:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-11T21:27:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-027",
+      "created_at": "2026-05-06T17:18:00Z",
+      "source": "referral",
+      "current_stage": "proposal",
+      "owner": "Иванова М.В.",
+      "full_name": "Новиков Никита Иванович",
+      "phone": "+79190260096",
+      "email": "lead27@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-06T17:18:00Z",
+          "left_at": "2026-05-08T20:18:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-08T20:18:00Z",
+          "left_at": "2026-05-12T23:18:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-12T23:18:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-028",
+      "created_at": "2026-04-03T14:09:00Z",
+      "source": "olymp",
+      "current_stage": "proposal",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Иванов Дмитрий Дмитриевич",
+      "phone": "+79451165661",
+      "email": "lead28@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-03T14:09:00Z",
+          "left_at": "2026-04-13T08:09:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-13T08:09:00Z",
+          "left_at": "2026-04-22T06:09:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-22T06:09:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-029",
+      "created_at": "2026-03-03T18:05:00Z",
+      "source": "site",
+      "current_stage": "won",
+      "owner": "Иванова М.В.",
+      "full_name": "Иванов Дмитрий Сергеевич",
+      "phone": "+79464161443",
+      "email": "lead29@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-03T18:05:00Z",
+          "left_at": "2026-03-06T13:05:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-06T13:05:00Z",
+          "left_at": "2026-03-10T15:05:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-10T15:05:00Z",
+          "left_at": "2026-03-15T18:05:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-03-15T18:05:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-030",
+      "created_at": "2026-05-07T19:15:00Z",
+      "source": "olymp",
+      "current_stage": "lost",
+      "owner": "Петров П.П.",
+      "full_name": "Морозова Татьяна Андреевна",
+      "phone": "+79670249079",
+      "email": "lead30@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-07T19:15:00Z",
+          "left_at": "2026-05-11T03:15:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-11T03:15:00Z",
+          "left_at": "2026-05-12T08:15:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-12T08:15:00Z",
+          "left_at": "2026-05-16T17:15:00Z"
+        },
+        {
+          "stage": "lost",
+          "entered_at": "2026-05-16T17:15:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-031",
+      "created_at": "2026-04-14T08:16:00Z",
+      "source": "olymp",
+      "current_stage": "new",
+      "owner": "Иванова М.В.",
+      "full_name": "Смирнова Ксения Андреевна",
+      "phone": "+79119793247",
+      "email": "lead31@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-14T08:16:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-032",
+      "created_at": "2026-04-25T18:31:00Z",
+      "source": "referral",
+      "current_stage": "proposal",
+      "owner": "Петров П.П.",
+      "full_name": "Кузнецова Ксения Алексеевна",
+      "phone": "+79331048965",
+      "email": "lead32@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-25T18:31:00Z",
+          "left_at": "2026-05-03T10:31:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-03T10:31:00Z",
+          "left_at": "2026-05-09T08:31:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-09T08:31:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-033",
+      "created_at": "2026-03-07T10:00:00Z",
+      "source": "referral",
+      "current_stage": "new",
+      "owner": "Иванова М.В.",
+      "full_name": "Волкова Ольга Алексеевна",
+      "phone": "+79895523712",
+      "email": "lead33@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-07T10:00:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-034",
+      "created_at": "2026-05-04T18:18:00Z",
+      "source": "site",
+      "current_stage": "proposal",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Морозова Мария Ивановна",
+      "phone": "+79269149705",
+      "email": "lead34@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-04T18:18:00Z",
+          "left_at": "2026-05-09T19:18:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-09T19:18:00Z",
+          "left_at": "2026-05-18T00:18:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-18T00:18:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-035",
+      "created_at": "2026-04-01T08:56:00Z",
+      "source": "aggregator",
+      "current_stage": "qualified",
+      "owner": "Иванова М.В.",
+      "full_name": "Иванов Андрей Дмитриевич",
+      "phone": "+79101147738",
+      "email": "lead35@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-01T08:56:00Z",
+          "left_at": "2026-04-07T13:56:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-07T13:56:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-036",
+      "created_at": "2026-04-01T16:49:00Z",
+      "source": "event",
+      "current_stage": "new",
+      "owner": "Сидоров А.А.",
+      "full_name": "Петров Никита Дмитриевич",
+      "phone": "+79383648961",
+      "email": "lead36@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-01T16:49:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-037",
+      "created_at": "2026-03-03T12:19:00Z",
+      "source": "site",
+      "current_stage": "proposal",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Сидорова Юлия Андреевна",
+      "phone": "+79806032141",
+      "email": "lead37@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-03T12:19:00Z",
+          "left_at": "2026-03-06T06:19:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-06T06:19:00Z",
+          "left_at": "2026-03-15T10:19:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-15T10:19:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-038",
+      "created_at": "2026-03-19T08:52:00Z",
+      "source": "olymp",
+      "current_stage": "lost",
+      "owner": "Иванова М.В.",
+      "full_name": "Морозова Дарья Сергеевна",
+      "phone": "+79908384955",
+      "email": "lead38@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-19T08:52:00Z",
+          "left_at": "2026-03-29T04:52:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-29T04:52:00Z",
+          "left_at": "2026-04-06T03:52:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-06T03:52:00Z",
+          "left_at": "2026-04-15T07:52:00Z"
+        },
+        {
+          "stage": "lost",
+          "entered_at": "2026-04-15T07:52:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-039",
+      "created_at": "2026-03-18T18:23:00Z",
+      "source": "site",
+      "current_stage": "won",
+      "owner": "Петров П.П.",
+      "full_name": "Иванова Ольга Ивановна",
+      "phone": "+79362593955",
+      "email": "lead39@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-18T18:23:00Z",
+          "left_at": "2026-03-26T08:23:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-26T08:23:00Z",
+          "left_at": "2026-04-04T09:23:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-04T09:23:00Z",
+          "left_at": "2026-04-06T05:23:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-06T05:23:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-040",
+      "created_at": "2026-05-07T09:47:00Z",
+      "source": "event",
+      "current_stage": "lost",
+      "owner": "Петров П.П.",
+      "full_name": "Иванов Никита Иванович",
+      "phone": "+79594286377",
+      "email": "lead40@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-07T09:47:00Z",
+          "left_at": "2026-05-12T11:47:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-12T11:47:00Z",
+          "left_at": "2026-05-17T18:47:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-17T18:47:00Z",
+          "left_at": "2026-05-22T01:47:00Z"
+        },
+        {
+          "stage": "lost",
+          "entered_at": "2026-05-22T01:47:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-041",
+      "created_at": "2026-03-26T09:38:00Z",
+      "source": "aggregator",
+      "current_stage": "new",
+      "owner": "Петров П.П.",
+      "full_name": "Морозов Алексей Сергеевич",
+      "phone": "+79372666299",
+      "email": "lead41@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-26T09:38:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-042",
+      "created_at": "2026-05-02T12:43:00Z",
+      "source": "referral",
+      "current_stage": "new",
+      "owner": "Петров П.П.",
+      "full_name": "Смирнова Мария Ивановна",
+      "phone": "+79333746572",
+      "email": "lead42@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-02T12:43:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-043",
+      "created_at": "2026-03-16T16:12:00Z",
+      "source": "referral",
+      "current_stage": "qualified",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Смирнова Татьяна Сергеевна",
+      "phone": "+79118795268",
+      "email": "lead43@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-16T16:12:00Z",
+          "left_at": "2026-03-19T07:12:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-19T07:12:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-044",
+      "created_at": "2026-03-27T09:37:00Z",
+      "source": "referral",
+      "current_stage": "new",
+      "owner": "Сидоров А.А.",
+      "full_name": "Петров Никита Дмитриевич",
+      "phone": "+79902607174",
+      "email": "lead44@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-27T09:37:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-045",
+      "created_at": "2026-03-15T19:23:00Z",
+      "source": "event",
+      "current_stage": "qualified",
+      "owner": "Иванова М.В.",
+      "full_name": "Волкова Мария Андреевна",
+      "phone": "+79126665741",
+      "email": "lead45@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-15T19:23:00Z",
+          "left_at": "2026-03-24T07:23:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-24T07:23:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-046",
+      "created_at": "2026-04-23T13:24:00Z",
+      "source": "aggregator",
+      "current_stage": "qualified",
+      "owner": "Сидоров А.А.",
+      "full_name": "Новиков Никита Сергеевич",
+      "phone": "+79448480313",
+      "email": "lead46@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-23T13:24:00Z",
+          "left_at": "2026-04-29T13:24:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-29T13:24:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-047",
+      "created_at": "2026-04-02T13:04:00Z",
+      "source": "site",
+      "current_stage": "qualified",
+      "owner": "Иванова М.В.",
+      "full_name": "Морозова Елена Алексеевна",
+      "phone": "+79559618139",
+      "email": "lead47@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-02T13:04:00Z",
+          "left_at": "2026-04-05T00:04:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-05T00:04:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-048",
+      "created_at": "2026-03-20T11:17:00Z",
+      "source": "site",
+      "current_stage": "qualified",
+      "owner": "Иванова М.В.",
+      "full_name": "Иванова Татьяна Ивановна",
+      "phone": "+79930199614",
+      "email": "lead48@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-20T11:17:00Z",
+          "left_at": "2026-03-26T17:17:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-26T17:17:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-049",
+      "created_at": "2026-03-11T08:59:00Z",
+      "source": "event",
+      "current_stage": "won",
+      "owner": "Сидоров А.А.",
+      "full_name": "Морозов Иван Сергеевич",
+      "phone": "+79690674182",
+      "email": "lead49@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-11T08:59:00Z",
+          "left_at": "2026-03-20T03:59:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-20T03:59:00Z",
+          "left_at": "2026-03-23T23:59:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-23T23:59:00Z",
+          "left_at": "2026-03-29T14:59:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-03-29T14:59:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-050",
+      "created_at": "2026-04-02T19:47:00Z",
+      "source": "aggregator",
+      "current_stage": "lost",
+      "owner": "Иванова М.В.",
+      "full_name": "Новиков Егор Дмитриевич",
+      "phone": "+79228572554",
+      "email": "lead50@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-02T19:47:00Z",
+          "left_at": "2026-04-08T07:47:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-08T07:47:00Z",
+          "left_at": "2026-04-12T16:47:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-12T16:47:00Z",
+          "left_at": "2026-04-21T09:47:00Z"
+        },
+        {
+          "stage": "lost",
+          "entered_at": "2026-04-21T09:47:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-051",
+      "created_at": "2026-05-10T11:28:00Z",
+      "source": "event",
+      "current_stage": "won",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Сидоров Алексей Алексеевич",
+      "phone": "+79467171638",
+      "email": "lead51@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-10T11:28:00Z",
+          "left_at": "2026-05-19T00:28:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-19T00:28:00Z",
+          "left_at": "2026-05-22T17:28:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-22T17:28:00Z",
+          "left_at": "2026-05-27T00:28:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-05-27T00:28:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-052",
+      "created_at": "2026-03-03T19:55:00Z",
+      "source": "aggregator",
+      "current_stage": "qualified",
+      "owner": "Сидоров А.А.",
+      "full_name": "Волкова Ольга Дмитриевна",
+      "phone": "+79662821260",
+      "email": "lead52@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-03T19:55:00Z",
+          "left_at": "2026-03-11T18:55:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-11T18:55:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-053",
+      "created_at": "2026-04-16T10:43:00Z",
+      "source": "referral",
+      "current_stage": "proposal",
+      "owner": "Иванова М.В.",
+      "full_name": "Смирнов Максим Иванович",
+      "phone": "+79512918974",
+      "email": "lead53@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-16T10:43:00Z",
+          "left_at": "2026-04-20T12:43:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-20T12:43:00Z",
+          "left_at": "2026-04-25T19:43:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-25T19:43:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-054",
+      "created_at": "2026-03-05T14:45:00Z",
+      "source": "site",
+      "current_stage": "lost",
+      "owner": "Сидоров А.А.",
+      "full_name": "Новиков Егор Дмитриевич",
+      "phone": "+79986469662",
+      "email": "lead54@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-05T14:45:00Z",
+          "left_at": "2026-03-14T08:45:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-14T08:45:00Z",
+          "left_at": "2026-03-22T08:45:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-22T08:45:00Z",
+          "left_at": "2026-03-24T20:45:00Z"
+        },
+        {
+          "stage": "lost",
+          "entered_at": "2026-03-24T20:45:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-055",
+      "created_at": "2026-03-20T10:33:00Z",
+      "source": "site",
+      "current_stage": "won",
+      "owner": "Сидоров А.А.",
+      "full_name": "Новикова Ксения Алексеевна",
+      "phone": "+79234917566",
+      "email": "lead55@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-20T10:33:00Z",
+          "left_at": "2026-03-23T09:33:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-23T09:33:00Z",
+          "left_at": "2026-03-31T11:33:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-31T11:33:00Z",
+          "left_at": "2026-04-09T12:33:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-09T12:33:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-056",
+      "created_at": "2026-03-15T09:04:00Z",
+      "source": "aggregator",
+      "current_stage": "qualified",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Иванов Андрей Алексеевич",
+      "phone": "+79380119790",
+      "email": "lead56@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-15T09:04:00Z",
+          "left_at": "2026-03-19T21:04:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-19T21:04:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-057",
+      "created_at": "2026-04-05T13:41:00Z",
+      "source": "aggregator",
+      "current_stage": "won",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Иванов Иван Андреевич",
+      "phone": "+79542177781",
+      "email": "lead57@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-05T13:41:00Z",
+          "left_at": "2026-04-10T04:41:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-10T04:41:00Z",
+          "left_at": "2026-04-19T11:41:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-19T11:41:00Z",
+          "left_at": "2026-04-28T18:41:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-28T18:41:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-058",
+      "created_at": "2026-04-23T09:16:00Z",
+      "source": "olymp",
+      "current_stage": "qualified",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Смирнова Анна Ивановна",
+      "phone": "+79343509688",
+      "email": "lead58@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-23T09:16:00Z",
+          "left_at": "2026-04-30T20:16:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-30T20:16:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-059",
+      "created_at": "2026-03-01T12:47:00Z",
+      "source": "referral",
+      "current_stage": "won",
+      "owner": "Сидоров А.А.",
+      "full_name": "Волков Егор Дмитриевич",
+      "phone": "+79337772408",
+      "email": "lead59@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-01T12:47:00Z",
+          "left_at": "2026-03-03T18:47:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-03T18:47:00Z",
+          "left_at": "2026-03-12T00:47:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-12T00:47:00Z",
+          "left_at": "2026-03-17T06:47:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-03-17T06:47:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-060",
+      "created_at": "2026-03-29T15:26:00Z",
+      "source": "referral",
+      "current_stage": "won",
+      "owner": "Сидоров А.А.",
+      "full_name": "Смирнов Алексей Андреевич",
+      "phone": "+79740086647",
+      "email": "lead60@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-29T15:26:00Z",
+          "left_at": "2026-03-31T10:26:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-31T10:26:00Z",
+          "left_at": "2026-04-03T22:26:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-03T22:26:00Z",
+          "left_at": "2026-04-05T04:26:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-05T04:26:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-061",
+      "created_at": "2026-04-10T19:07:00Z",
+      "source": "referral",
+      "current_stage": "won",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Иванов Иван Алексеевич",
+      "phone": "+79434821846",
+      "email": "lead61@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-10T19:07:00Z",
+          "left_at": "2026-04-14T05:07:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-14T05:07:00Z",
+          "left_at": "2026-04-18T10:07:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-18T10:07:00Z",
+          "left_at": "2026-04-28T09:07:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-28T09:07:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-062",
+      "created_at": "2026-03-14T08:05:00Z",
+      "source": "referral",
+      "current_stage": "qualified",
+      "owner": "Сидоров А.А.",
+      "full_name": "Морозова Дарья Дмитриевна",
+      "phone": "+79232830753",
+      "email": "lead62@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-14T08:05:00Z",
+          "left_at": "2026-03-20T21:05:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-20T21:05:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-063",
+      "created_at": "2026-03-12T08:45:00Z",
+      "source": "aggregator",
+      "current_stage": "proposal",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Кузнецова Юлия Дмитриевна",
+      "phone": "+79447150598",
+      "email": "lead63@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-12T08:45:00Z",
+          "left_at": "2026-03-19T01:45:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-19T01:45:00Z",
+          "left_at": "2026-03-27T07:45:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-27T07:45:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-064",
+      "created_at": "2026-03-06T14:02:00Z",
+      "source": "olymp",
+      "current_stage": "proposal",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Новиков Иван Сергеевич",
+      "phone": "+79167486538",
+      "email": "lead64@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-06T14:02:00Z",
+          "left_at": "2026-03-07T22:02:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-07T22:02:00Z",
+          "left_at": "2026-03-12T21:02:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-12T21:02:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-065",
+      "created_at": "2026-04-03T19:45:00Z",
+      "source": "aggregator",
+      "current_stage": "lost",
+      "owner": "Петров П.П.",
+      "full_name": "Волкова Дарья Дмитриевна",
+      "phone": "+79215171016",
+      "email": "lead65@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-03T19:45:00Z",
+          "left_at": "2026-04-09T04:45:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-09T04:45:00Z",
+          "left_at": "2026-04-11T03:45:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-11T03:45:00Z",
+          "left_at": "2026-04-13T03:45:00Z"
+        },
+        {
+          "stage": "lost",
+          "entered_at": "2026-04-13T03:45:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-066",
+      "created_at": "2026-03-17T15:11:00Z",
+      "source": "referral",
+      "current_stage": "new",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Новиков Егор Дмитриевич",
+      "phone": "+79892945471",
+      "email": "lead66@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-17T15:11:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-067",
+      "created_at": "2026-04-16T17:05:00Z",
+      "source": "aggregator",
+      "current_stage": "proposal",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Сидоров Сергей Дмитриевич",
+      "phone": "+79169506557",
+      "email": "lead67@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-16T17:05:00Z",
+          "left_at": "2026-04-23T22:05:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-23T22:05:00Z",
+          "left_at": "2026-04-28T11:05:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-28T11:05:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-068",
+      "created_at": "2026-03-10T12:39:00Z",
+      "source": "referral",
+      "current_stage": "new",
+      "owner": "Петров П.П.",
+      "full_name": "Новикова Дарья Алексеевна",
+      "phone": "+79203532955",
+      "email": "lead68@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-10T12:39:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-069",
+      "created_at": "2026-04-28T17:57:00Z",
+      "source": "olymp",
+      "current_stage": "won",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Новиков Дмитрий Алексеевич",
+      "phone": "+79500474606",
+      "email": "lead69@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-28T17:57:00Z",
+          "left_at": "2026-05-08T14:57:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-08T14:57:00Z",
+          "left_at": "2026-05-10T23:57:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-10T23:57:00Z",
+          "left_at": "2026-05-16T07:57:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-05-16T07:57:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-070",
+      "created_at": "2026-04-01T11:09:00Z",
+      "source": "olymp",
+      "current_stage": "qualified",
+      "owner": "Сидоров А.А.",
+      "full_name": "Смирнов Сергей Сергеевич",
+      "phone": "+79169582865",
+      "email": "lead70@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-01T11:09:00Z",
+          "left_at": "2026-04-05T21:09:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-05T21:09:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-071",
+      "created_at": "2026-03-14T08:30:00Z",
+      "source": "referral",
+      "current_stage": "won",
+      "owner": "Петров П.П.",
+      "full_name": "Кузнецов Сергей Иванович",
+      "phone": "+79303552653",
+      "email": "lead71@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-14T08:30:00Z",
+          "left_at": "2026-03-18T22:30:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-18T22:30:00Z",
+          "left_at": "2026-03-24T23:30:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-24T23:30:00Z",
+          "left_at": "2026-03-30T06:30:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-03-30T06:30:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-072",
+      "created_at": "2026-04-27T17:16:00Z",
+      "source": "event",
+      "current_stage": "won",
+      "owner": "Сидоров А.А.",
+      "full_name": "Кузнецова Елена Дмитриевна",
+      "phone": "+79147423455",
+      "email": "lead72@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-27T17:16:00Z",
+          "left_at": "2026-04-28T20:16:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-28T20:16:00Z",
+          "left_at": "2026-05-05T02:16:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-05T02:16:00Z",
+          "left_at": "2026-05-06T13:16:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-05-06T13:16:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-073",
+      "created_at": "2026-04-11T14:43:00Z",
+      "source": "olymp",
+      "current_stage": "qualified",
+      "owner": "Петров П.П.",
+      "full_name": "Смирнов Иван Андреевич",
+      "phone": "+79318407432",
+      "email": "lead73@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-11T14:43:00Z",
+          "left_at": "2026-04-16T16:43:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-16T16:43:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-074",
+      "created_at": "2026-04-20T18:35:00Z",
+      "source": "referral",
+      "current_stage": "new",
+      "owner": "Петров П.П.",
+      "full_name": "Новиков Никита Иванович",
+      "phone": "+79673375090",
+      "email": "lead74@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-20T18:35:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-075",
+      "created_at": "2026-04-09T14:03:00Z",
+      "source": "referral",
+      "current_stage": "qualified",
+      "owner": "Иванова М.В.",
+      "full_name": "Сидоров Егор Дмитриевич",
+      "phone": "+79547154828",
+      "email": "lead75@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-09T14:03:00Z",
+          "left_at": "2026-04-16T03:03:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-16T03:03:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-076",
+      "created_at": "2026-03-01T14:57:00Z",
+      "source": "referral",
+      "current_stage": "new",
+      "owner": "Сидоров А.А.",
+      "full_name": "Волков Сергей Сергеевич",
+      "phone": "+79221911884",
+      "email": "lead76@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-01T14:57:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-077",
+      "created_at": "2026-03-02T08:35:00Z",
+      "source": "olymp",
+      "current_stage": "new",
+      "owner": "Сидоров А.А.",
+      "full_name": "Морозова Дарья Сергеевна",
+      "phone": "+79965938673",
+      "email": "lead77@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-02T08:35:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-078",
+      "created_at": "2026-04-14T12:10:00Z",
+      "source": "olymp",
+      "current_stage": "proposal",
+      "owner": "Сидоров А.А.",
+      "full_name": "Петрова Дарья Андреевна",
+      "phone": "+79909124394",
+      "email": "lead78@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-14T12:10:00Z",
+          "left_at": "2026-04-16T15:10:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-16T15:10:00Z",
+          "left_at": "2026-04-24T06:10:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-24T06:10:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-079",
+      "created_at": "2026-04-10T08:38:00Z",
+      "source": "site",
+      "current_stage": "won",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Кузнецова Татьяна Алексеевна",
+      "phone": "+79310574666",
+      "email": "lead79@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-10T08:38:00Z",
+          "left_at": "2026-04-17T10:38:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-17T10:38:00Z",
+          "left_at": "2026-04-21T06:38:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-21T06:38:00Z",
+          "left_at": "2026-04-26T01:38:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-26T01:38:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-080",
+      "created_at": "2026-04-19T13:07:00Z",
+      "source": "referral",
+      "current_stage": "new",
+      "owner": "Сидоров А.А.",
+      "full_name": "Сидорова Ольга Ивановна",
+      "phone": "+79878336856",
+      "email": "lead80@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-19T13:07:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-081",
+      "created_at": "2026-03-16T14:38:00Z",
+      "source": "site",
+      "current_stage": "proposal",
+      "owner": "Иванова М.В.",
+      "full_name": "Кузнецова Анна Андреевна",
+      "phone": "+79725588468",
+      "email": "lead81@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-16T14:38:00Z",
+          "left_at": "2026-03-22T10:38:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-22T10:38:00Z",
+          "left_at": "2026-03-29T19:38:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-29T19:38:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-082",
+      "created_at": "2026-03-23T08:00:00Z",
+      "source": "event",
+      "current_stage": "proposal",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Морозов Максим Сергеевич",
+      "phone": "+79919871887",
+      "email": "lead82@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-23T08:00:00Z",
+          "left_at": "2026-03-31T22:00:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-31T22:00:00Z",
+          "left_at": "2026-04-05T12:00:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-05T12:00:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-083",
+      "created_at": "2026-03-09T10:22:00Z",
+      "source": "referral",
+      "current_stage": "qualified",
+      "owner": "Петров П.П.",
+      "full_name": "Новикова Мария Сергеевна",
+      "phone": "+79641533161",
+      "email": "lead83@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-09T10:22:00Z",
+          "left_at": "2026-03-12T00:22:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-12T00:22:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-084",
+      "created_at": "2026-05-05T09:03:00Z",
+      "source": "site",
+      "current_stage": "lost",
+      "owner": "Иванова М.В.",
+      "full_name": "Иванова Анна Алексеевна",
+      "phone": "+79975088260",
+      "email": "lead84@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-05T09:03:00Z",
+          "left_at": "2026-05-13T05:03:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-13T05:03:00Z",
+          "left_at": "2026-05-16T05:03:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-16T05:03:00Z",
+          "left_at": "2026-05-19T00:03:00Z"
+        },
+        {
+          "stage": "lost",
+          "entered_at": "2026-05-19T00:03:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-085",
+      "created_at": "2026-03-09T13:39:00Z",
+      "source": "olymp",
+      "current_stage": "won",
+      "owner": "Сидоров А.А.",
+      "full_name": "Сидоров Никита Дмитриевич",
+      "phone": "+79615511585",
+      "email": "lead85@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-09T13:39:00Z",
+          "left_at": "2026-03-12T23:39:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-12T23:39:00Z",
+          "left_at": "2026-03-18T13:39:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-18T13:39:00Z",
+          "left_at": "2026-03-21T21:39:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-03-21T21:39:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-086",
+      "created_at": "2026-03-26T10:25:00Z",
+      "source": "aggregator",
+      "current_stage": "new",
+      "owner": "Петров П.П.",
+      "full_name": "Смирнов Сергей Дмитриевич",
+      "phone": "+79398713012",
+      "email": "lead86@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-26T10:25:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-087",
+      "created_at": "2026-04-16T15:35:00Z",
+      "source": "site",
+      "current_stage": "proposal",
+      "owner": "Петров П.П.",
+      "full_name": "Морозова Мария Дмитриевна",
+      "phone": "+79523329593",
+      "email": "lead87@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-16T15:35:00Z",
+          "left_at": "2026-04-18T23:35:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-18T23:35:00Z",
+          "left_at": "2026-04-28T19:35:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-28T19:35:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-088",
+      "created_at": "2026-04-16T13:48:00Z",
+      "source": "aggregator",
+      "current_stage": "new",
+      "owner": "Сидоров А.А.",
+      "full_name": "Волкова Татьяна Сергеевна",
+      "phone": "+79347011413",
+      "email": "lead88@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-16T13:48:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-089",
+      "created_at": "2026-04-10T19:00:00Z",
+      "source": "aggregator",
+      "current_stage": "won",
+      "owner": "Иванова М.В.",
+      "full_name": "Иванов Андрей Андреевич",
+      "phone": "+79151299481",
+      "email": "lead89@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-10T19:00:00Z",
+          "left_at": "2026-04-14T23:00:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-14T23:00:00Z",
+          "left_at": "2026-04-20T18:00:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-20T18:00:00Z",
+          "left_at": "2026-04-28T07:00:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-28T07:00:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-090",
+      "created_at": "2026-04-15T12:06:00Z",
+      "source": "site",
+      "current_stage": "proposal",
+      "owner": "Петров П.П.",
+      "full_name": "Кузнецов Иван Иванович",
+      "phone": "+79423362703",
+      "email": "lead90@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-15T12:06:00Z",
+          "left_at": "2026-04-24T19:06:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-24T19:06:00Z",
+          "left_at": "2026-05-02T13:06:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-02T13:06:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-091",
+      "created_at": "2026-03-18T08:59:00Z",
+      "source": "referral",
+      "current_stage": "lost",
+      "owner": "Сидоров А.А.",
+      "full_name": "Кузнецова Дарья Андреевна",
+      "phone": "+79531593627",
+      "email": "lead91@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-18T08:59:00Z",
+          "left_at": "2026-03-21T22:59:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-21T22:59:00Z",
+          "left_at": "2026-03-24T00:59:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-24T00:59:00Z",
+          "left_at": "2026-03-27T21:59:00Z"
+        },
+        {
+          "stage": "lost",
+          "entered_at": "2026-03-27T21:59:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-092",
+      "created_at": "2026-05-06T19:31:00Z",
+      "source": "aggregator",
+      "current_stage": "qualified",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Иванова Анна Андреевна",
+      "phone": "+79166065740",
+      "email": "lead92@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-06T19:31:00Z",
+          "left_at": "2026-05-07T20:31:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-07T20:31:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-093",
+      "created_at": "2026-03-14T08:39:00Z",
+      "source": "olymp",
+      "current_stage": "proposal",
+      "owner": "Петров П.П.",
+      "full_name": "Морозова Мария Алексеевна",
+      "phone": "+79656475385",
+      "email": "lead93@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-14T08:39:00Z",
+          "left_at": "2026-03-18T12:39:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-18T12:39:00Z",
+          "left_at": "2026-03-25T18:39:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-25T18:39:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-094",
+      "created_at": "2026-04-08T18:03:00Z",
+      "source": "aggregator",
+      "current_stage": "lost",
+      "owner": "Петров П.П.",
+      "full_name": "Морозова Мария Андреевна",
+      "phone": "+79599575086",
+      "email": "lead94@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-08T18:03:00Z",
+          "left_at": "2026-04-17T16:03:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-17T16:03:00Z",
+          "left_at": "2026-04-26T16:03:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-26T16:03:00Z",
+          "left_at": "2026-05-04T05:03:00Z"
+        },
+        {
+          "stage": "lost",
+          "entered_at": "2026-05-04T05:03:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-095",
+      "created_at": "2026-03-30T18:02:00Z",
+      "source": "site",
+      "current_stage": "new",
+      "owner": "Иванова М.В.",
+      "full_name": "Новиков Дмитрий Алексеевич",
+      "phone": "+79904934916",
+      "email": "lead95@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-30T18:02:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-096",
+      "created_at": "2026-05-06T12:18:00Z",
+      "source": "event",
+      "current_stage": "proposal",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Смирнова Анна Дмитриевна",
+      "phone": "+79282288703",
+      "email": "lead96@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-06T12:18:00Z",
+          "left_at": "2026-05-10T14:18:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-10T14:18:00Z",
+          "left_at": "2026-05-19T14:18:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-19T14:18:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-097",
+      "created_at": "2026-04-19T13:38:00Z",
+      "source": "aggregator",
+      "current_stage": "qualified",
+      "owner": "Сидоров А.А.",
+      "full_name": "Кузнецов Сергей Алексеевич",
+      "phone": "+79606957016",
+      "email": "lead97@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-19T13:38:00Z",
+          "left_at": "2026-04-29T04:38:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-29T04:38:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-098",
+      "created_at": "2026-03-28T14:39:00Z",
+      "source": "olymp",
+      "current_stage": "proposal",
+      "owner": "Иванова М.В.",
+      "full_name": "Иванова Анна Сергеевна",
+      "phone": "+79220144240",
+      "email": "lead98@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-28T14:39:00Z",
+          "left_at": "2026-03-31T18:39:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-31T18:39:00Z",
+          "left_at": "2026-04-01T18:39:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-01T18:39:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-099",
+      "created_at": "2026-03-06T10:44:00Z",
+      "source": "site",
+      "current_stage": "proposal",
+      "owner": "Петров П.П.",
+      "full_name": "Сидоров Максим Алексеевич",
+      "phone": "+79150132009",
+      "email": "lead99@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-06T10:44:00Z",
+          "left_at": "2026-03-08T08:44:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-08T08:44:00Z",
+          "left_at": "2026-03-11T07:44:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-11T07:44:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-100",
+      "created_at": "2026-03-14T11:13:00Z",
+      "source": "site",
+      "current_stage": "new",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Волков Сергей Андреевич",
+      "phone": "+79136357573",
+      "email": "lead100@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-14T11:13:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-101",
+      "created_at": "2026-03-13T18:13:00Z",
+      "source": "site",
+      "current_stage": "qualified",
+      "owner": "Сидоров А.А.",
+      "full_name": "Петров Андрей Сергеевич",
+      "phone": "+79380418002",
+      "email": "lead101@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-13T18:13:00Z",
+          "left_at": "2026-03-20T07:13:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-20T07:13:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-102",
+      "created_at": "2026-05-04T15:54:00Z",
+      "source": "aggregator",
+      "current_stage": "qualified",
+      "owner": "Иванова М.В.",
+      "full_name": "Смирнов Андрей Иванович",
+      "phone": "+79133552611",
+      "email": "lead102@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-04T15:54:00Z",
+          "left_at": "2026-05-06T04:54:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-06T04:54:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-103",
+      "created_at": "2026-03-12T17:52:00Z",
+      "source": "site",
+      "current_stage": "qualified",
+      "owner": "Сидоров А.А.",
+      "full_name": "Петров Максим Сергеевич",
+      "phone": "+79662163695",
+      "email": "lead103@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-12T17:52:00Z",
+          "left_at": "2026-03-19T17:52:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-19T17:52:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-104",
+      "created_at": "2026-05-02T19:50:00Z",
+      "source": "referral",
+      "current_stage": "lost",
+      "owner": "Петров П.П.",
+      "full_name": "Иванов Иван Дмитриевич",
+      "phone": "+79404652501",
+      "email": "lead104@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-02T19:50:00Z",
+          "left_at": "2026-05-11T13:50:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-11T13:50:00Z",
+          "left_at": "2026-05-18T05:50:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-18T05:50:00Z",
+          "left_at": "2026-05-23T23:50:00Z"
+        },
+        {
+          "stage": "lost",
+          "entered_at": "2026-05-23T23:50:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-105",
+      "created_at": "2026-05-02T19:35:00Z",
+      "source": "site",
+      "current_stage": "won",
+      "owner": "Петров П.П.",
+      "full_name": "Кузнецова Ксения Алексеевна",
+      "phone": "+79793489778",
+      "email": "lead105@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-02T19:35:00Z",
+          "left_at": "2026-05-09T06:35:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-09T06:35:00Z",
+          "left_at": "2026-05-11T18:35:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-11T18:35:00Z",
+          "left_at": "2026-05-19T17:35:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-05-19T17:35:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-106",
+      "created_at": "2026-04-18T18:14:00Z",
+      "source": "referral",
+      "current_stage": "won",
+      "owner": "Сидоров А.А.",
+      "full_name": "Кузнецов Андрей Дмитриевич",
+      "phone": "+79583513002",
+      "email": "lead106@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-18T18:14:00Z",
+          "left_at": "2026-04-22T11:14:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-22T11:14:00Z",
+          "left_at": "2026-04-23T22:14:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-23T22:14:00Z",
+          "left_at": "2026-04-30T14:14:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-30T14:14:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-107",
+      "created_at": "2026-03-30T10:21:00Z",
+      "source": "referral",
+      "current_stage": "proposal",
+      "owner": "Иванова М.В.",
+      "full_name": "Волкова Мария Сергеевна",
+      "phone": "+79423741422",
+      "email": "lead107@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-30T10:21:00Z",
+          "left_at": "2026-04-04T02:21:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-04T02:21:00Z",
+          "left_at": "2026-04-08T10:21:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-08T10:21:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-108",
+      "created_at": "2026-03-21T11:20:00Z",
+      "source": "aggregator",
+      "current_stage": "won",
+      "owner": "Иванова М.В.",
+      "full_name": "Сидорова Мария Алексеевна",
+      "phone": "+79259256472",
+      "email": "lead108@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-21T11:20:00Z",
+          "left_at": "2026-03-27T10:20:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-27T10:20:00Z",
+          "left_at": "2026-03-29T15:20:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-29T15:20:00Z",
+          "left_at": "2026-03-31T21:20:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-03-31T21:20:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-109",
+      "created_at": "2026-03-14T12:13:00Z",
+      "source": "olymp",
+      "current_stage": "won",
+      "owner": "Петров П.П.",
+      "full_name": "Смирнова Юлия Дмитриевна",
+      "phone": "+79779010430",
+      "email": "lead109@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-14T12:13:00Z",
+          "left_at": "2026-03-22T13:13:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-22T13:13:00Z",
+          "left_at": "2026-03-24T01:13:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-24T01:13:00Z",
+          "left_at": "2026-03-31T23:13:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-03-31T23:13:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-110",
+      "created_at": "2026-03-01T19:15:00Z",
+      "source": "event",
+      "current_stage": "won",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Иванов Дмитрий Дмитриевич",
+      "phone": "+79233375373",
+      "email": "lead110@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-01T19:15:00Z",
+          "left_at": "2026-03-09T17:15:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-09T17:15:00Z",
+          "left_at": "2026-03-17T00:15:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-17T00:15:00Z",
+          "left_at": "2026-03-21T21:15:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-03-21T21:15:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-111",
+      "created_at": "2026-04-21T19:45:00Z",
+      "source": "referral",
+      "current_stage": "proposal",
+      "owner": "Сидоров А.А.",
+      "full_name": "Волков Андрей Иванович",
+      "phone": "+79121106877",
+      "email": "lead111@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-21T19:45:00Z",
+          "left_at": "2026-04-27T08:45:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-27T08:45:00Z",
+          "left_at": "2026-05-05T22:45:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-05T22:45:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-112",
+      "created_at": "2026-05-02T09:02:00Z",
+      "source": "site",
+      "current_stage": "qualified",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Морозова Мария Дмитриевна",
+      "phone": "+79869031155",
+      "email": "lead112@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-02T09:02:00Z",
+          "left_at": "2026-05-06T14:02:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-06T14:02:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-113",
+      "created_at": "2026-05-09T11:45:00Z",
+      "source": "event",
+      "current_stage": "proposal",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Кузнецова Дарья Ивановна",
+      "phone": "+79468134336",
+      "email": "lead113@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-05-09T11:45:00Z",
+          "left_at": "2026-05-11T07:45:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-05-11T07:45:00Z",
+          "left_at": "2026-05-17T23:45:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-17T23:45:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-114",
+      "created_at": "2026-04-15T18:03:00Z",
+      "source": "referral",
+      "current_stage": "qualified",
+      "owner": "Петров П.П.",
+      "full_name": "Новиков Сергей Алексеевич",
+      "phone": "+79166039237",
+      "email": "lead114@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-15T18:03:00Z",
+          "left_at": "2026-04-23T06:03:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-23T06:03:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-115",
+      "created_at": "2026-03-14T11:19:00Z",
+      "source": "event",
+      "current_stage": "won",
+      "owner": "Иванова М.В.",
+      "full_name": "Морозов Егор Дмитриевич",
+      "phone": "+79933875961",
+      "email": "lead115@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-14T11:19:00Z",
+          "left_at": "2026-03-23T18:19:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-23T18:19:00Z",
+          "left_at": "2026-03-31T08:19:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-03-31T08:19:00Z",
+          "left_at": "2026-04-04T13:19:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-04-04T13:19:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-116",
+      "created_at": "2026-04-15T18:40:00Z",
+      "source": "olymp",
+      "current_stage": "won",
+      "owner": "Сидоров А.А.",
+      "full_name": "Кузнецов Никита Андреевич",
+      "phone": "+79347448027",
+      "email": "lead116@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-15T18:40:00Z",
+          "left_at": "2026-04-23T08:40:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-23T08:40:00Z",
+          "left_at": "2026-04-29T01:40:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-04-29T01:40:00Z",
+          "left_at": "2026-05-02T16:40:00Z"
+        },
+        {
+          "stage": "won",
+          "entered_at": "2026-05-02T16:40:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-117",
+      "created_at": "2026-03-01T19:51:00Z",
+      "source": "olymp",
+      "current_stage": "qualified",
+      "owner": "Кузнецов Д.С.",
+      "full_name": "Морозов Андрей Сергеевич",
+      "phone": "+79424077050",
+      "email": "lead117@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-01T19:51:00Z",
+          "left_at": "2026-03-06T15:51:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-06T15:51:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-118",
+      "created_at": "2026-03-20T12:54:00Z",
+      "source": "site",
+      "current_stage": "qualified",
+      "owner": "Иванова М.В.",
+      "full_name": "Новиков Егор Андреевич",
+      "phone": "+79448644916",
+      "email": "lead118@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-20T12:54:00Z",
+          "left_at": "2026-03-23T06:54:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-23T06:54:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-119",
+      "created_at": "2026-03-27T09:41:00Z",
+      "source": "site",
+      "current_stage": "qualified",
+      "owner": "Петров П.П.",
+      "full_name": "Сидорова Дарья Андреевна",
+      "phone": "+79253257911",
+      "email": "lead119@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-03-27T09:41:00Z",
+          "left_at": "2026-03-30T03:41:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-03-30T03:41:00Z",
+          "left_at": null
+        }
+      ]
+    },
+    {
+      "lead_id": "LEAD-120",
+      "created_at": "2026-04-21T16:10:00Z",
+      "source": "olymp",
+      "current_stage": "proposal",
+      "owner": "Сидоров А.А.",
+      "full_name": "Сидорова Ксения Дмитриевна",
+      "phone": "+79418948316",
+      "email": "lead120@example.ru",
+      "comment": "",
+      "stages": [
+        {
+          "stage": "new",
+          "entered_at": "2026-04-21T16:10:00Z",
+          "left_at": "2026-04-24T13:10:00Z"
+        },
+        {
+          "stage": "qualified",
+          "entered_at": "2026-04-24T13:10:00Z",
+          "left_at": "2026-05-04T09:10:00Z"
+        },
+        {
+          "stage": "proposal",
+          "entered_at": "2026-05-04T09:10:00Z",
+          "left_at": null
+        }
+      ]
+    }
+  ]
+}
