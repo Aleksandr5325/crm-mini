@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"time"
 
-	"back/internal/models"
+	"github.com/Aleksandr5325/crm-mini/internal/models"
 
 	"gorm.io/gorm"
 )

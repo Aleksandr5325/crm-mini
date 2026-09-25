@@ -1,4 +1,4 @@
-module back
+module github.com/Aleksandr5325/crm-mini
 
 go 1.26.3
 
