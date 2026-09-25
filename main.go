@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"back/internal/handlers"
-	"back/internal/models"
+	"github.com/Aleksandr5325/crm-mini/internal/handlers"
+	"github.com/Aleksandr5325/crm-mini/internal/models"
 
 	"github.com/gorilla/mux"
 	"gorm.io/driver/postgres"

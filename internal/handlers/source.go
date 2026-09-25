@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"back/internal/models"
+	"github.com/Aleksandr5325/crm-mini/internal/models"
 
 	"gorm.io/gorm"
 )

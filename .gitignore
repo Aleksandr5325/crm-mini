@@ -5,7 +5,7 @@ for1c/
 *.exe
 *.test
 *.out
-/back
+/crm-mini
 vendor/
 
 # ОС / редакторы
