@@ -35,3 +35,30 @@ help: ## Показать справку по командам
 	@echo ""
 	@echo "Доступные команды:"
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+
+migrate-create: ## PostgreSQL: Создать новую версию схемы данных
+	@if [ -z "$(seq)" ]; then \
+		echo "Отсутствует необходимый параметр seq. Пример: make migrate-create seq=init"; \
+		exit 1; \
+	fi; \
+	docker compose run --rm crm-postgres-migrate \
+		create \
+		-ext sql \
+		-dir /migrations \
+		-seq "$(seq)"
+
+migrate-up: ## PostgreSQL: Накатить миграции
+	@make migrate-action action=up
+
+migrate-down: ## PostgreSQL: Откатить миграции
+	@make migrate-action action=down
+
+migrate-action:
+	@if [ -z "$(action)" ]; then \
+		echo "Отсутствует необходимый параметр action. Пример: make migrate-action action=up"; \
+		exit 1; \
+	fi; \
+	docker compose run --rm crm-postgres-migrate \
+		-path /migrations \
+		-database "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@crm-postgres:5432/${POSTGRES_DB}?sslmode=disable&search_path=public" \
+		"$(action)"
