@@ -45,7 +45,7 @@ python3 -m http.server 5500
 либо напрямую в Go для разработки:
 ```bash
 curl -X POST http://localhost:8080/import/leads \
-  -H "Content-Type: application/json" --data-binary @seed_leads.json
+  -H "Content-Type: application/json" --data-binary @testdata/seed_leads.json
 ```
 
 ## Стадии воронки
@@ -60,7 +60,8 @@ curl -X POST http://localhost:8080/import/leads \
 │   ├── handlers/        # HTTP-обработчики (лиды, импорт, источники)
 │   └── models/          # модели данных (GORM)
 ├── 1c/                  # выгрузка конфигурации 1С
+│   └── openapi.yaml     # спецификация HTTP-сервиса 1С
 ├── site/                # веб-интерфейс (SPA)
-├── openapi-2.yaml       # спецификация HTTP-сервиса 1С
-└── seed_leads.json      # тестовый набор данных
+└── testdata/            # тестовые данные
+    └── seed_leads.json  # тестовый набор данных
 ```
