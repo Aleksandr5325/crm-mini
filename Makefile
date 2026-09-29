@@ -62,3 +62,6 @@ migrate-action:
 		-path /migrations \
 		-database "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@crm-postgres:5432/${POSTGRES_DB}?sslmode=disable&search_path=public" \
 		"$(action)"
+
+crm-run: ## Go-приложение: запустить локально.
+	@POSTGRES_HOST=127.0.0.1 go run ./cmd/crm
