@@ -10,8 +10,9 @@ import (
 
 // Config - настройки запуска сервера из переменных окружения.
 type Config struct {
-	Addr            string        `env:"HTTP_ADDR" envDefault:":8080"`
-	ShutdownTimeout time.Duration `env:"HTTP_SHUTDOWN_TIMEOUT" envDefault:"5s"`
+	Addr               string        `env:"HTTP_ADDR" envDefault:":8080"`
+	ShutdownTimeout    time.Duration `env:"HTTP_SHUTDOWN_TIMEOUT" envDefault:"5s"`
+	CORSAllowedOrigins []string      `env:"HTTP_CORS_ALLOWED_ORIGINS" envSeparator:","`
 }
 
 // NewConfig читает настройки запуска из переменных окружения.

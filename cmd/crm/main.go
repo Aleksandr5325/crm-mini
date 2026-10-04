@@ -12,6 +12,7 @@ import (
 
 	"github.com/Aleksandr5325/crm-mini/internal/core/httpserver"
 	"github.com/Aleksandr5325/crm-mini/internal/core/logger"
+	"github.com/Aleksandr5325/crm-mini/internal/core/middleware"
 	"github.com/Aleksandr5325/crm-mini/internal/core/postgres"
 	"github.com/Aleksandr5325/crm-mini/internal/features/health"
 )
@@ -60,9 +61,15 @@ func run() error {
 	)
 
 	mux := http.NewServeMux()
-	mux.Handle("GET /api/v1/health", health.NewHandler(pool, log))
+	mux.Handle("GET /api/v1/health", health.NewHandler(pool))
 
-	if err := httpserver.Run(ctx, httpCfg, mux, log); err != nil {
+	var handler http.Handler = mux
+	handler = middleware.Recover(handler)
+	handler = middleware.CORS(httpCfg.CORSAllowedOrigins, handler)
+	handler = middleware.AccessLog(handler)
+	handler = middleware.RequestID(log, handler)
+
+	if err := httpserver.Run(ctx, httpCfg, handler, log); err != nil {
 		return fmt.Errorf("http server: %w", err)
 	}
 
