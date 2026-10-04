@@ -64,4 +64,5 @@ migrate-action:
 		"$(action)"
 
 crm-run: ## Go-приложение: запустить локально.
-	@POSTGRES_HOST=127.0.0.1 go run ./cmd/crm
+	@POSTGRES_HOST=127.0.0.1 HTTP_ADDR=127.0.0.1:8080 go run ./cmd/crm
+
