@@ -15,6 +15,7 @@ func Run(ctx context.Context, cfg Config, handler http.Handler, log *zap.Logger)
 		Addr:              cfg.Addr,
 		Handler:           handler,
 		ReadHeaderTimeout: 5 * time.Second,
+		IdleTimeout:       60 * time.Second,
 	}
 
 	errCh := make(chan error, 1)
