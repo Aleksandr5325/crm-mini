@@ -2,14 +2,13 @@
 package middleware
 
 import (
+	"fmt"
 	"net/http"
 
-	"go.uber.org/zap"
-
-	"github.com/Aleksandr5325/crm-mini/internal/core/logger"
+	"github.com/Aleksandr5325/crm-mini/internal/core/respond"
 )
 
-// Recover помогает ловить паники
+// Recover перехватывает панику в обработчике и превращает её в ответ 500
 func Recover(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		defer func() {
@@ -18,15 +17,7 @@ func Recover(next http.Handler) http.Handler {
 				return
 			}
 
-			logger.FromContext(r.Context()).Error("panic in handler",
-				zap.Any("panic", rec),
-				zap.String("method", r.Method),
-				zap.String("path", r.URL.Path),
-			)
-
-			w.Header().Set("Content-Type", "application/json")
-			w.WriteHeader(http.StatusInternalServerError)
-			w.Write([]byte(`{"error":"internal server error"}`))
+			respond.Error(w, r, fmt.Errorf("panic: %v", rec))
 		}()
 
 		next.ServeHTTP(w, r)
