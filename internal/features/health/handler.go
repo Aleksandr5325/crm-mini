@@ -3,13 +3,13 @@ package health
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 	"time"
 
 	"go.uber.org/zap"
 
 	"github.com/Aleksandr5325/crm-mini/internal/core/logger"
+	"github.com/Aleksandr5325/crm-mini/internal/core/respond"
 )
 
 // Pinger - всё, что умеет проверять связь. Подходит, например, *pgxpool.Pool
@@ -46,7 +46,5 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		resp = response{Status: "unavailable", Database: "unavailable"}
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(code)
-	json.NewEncoder(w).Encode(resp)
+	respond.JSON(w, r, code, resp)
 }
