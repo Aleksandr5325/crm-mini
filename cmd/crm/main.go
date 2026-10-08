@@ -15,6 +15,7 @@ import (
 	"github.com/Aleksandr5325/crm-mini/internal/core/middleware"
 	"github.com/Aleksandr5325/crm-mini/internal/core/postgres"
 	"github.com/Aleksandr5325/crm-mini/internal/features/health"
+	"github.com/Aleksandr5325/crm-mini/internal/features/leads"
 	"github.com/Aleksandr5325/crm-mini/internal/features/sources"
 )
 
@@ -67,6 +68,10 @@ func run() error {
 	sourcesRepo := sources.NewRepository(pool)
 	sourcesService := sources.NewService(sourcesRepo)
 	sources.NewHandler(sourcesService).Register(mux)
+
+	leadsRepo := leads.NewRepository(pool)
+	leadsService := leads.NewService(leadsRepo)
+	leads.NewHandler(leadsService).Register(mux)
 
 	var handler http.Handler = mux
 	handler = middleware.Recover(handler)
