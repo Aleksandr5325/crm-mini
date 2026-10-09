@@ -6,12 +6,15 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Aleksandr5325/crm-mini/internal/core/apperr"
 	"github.com/google/uuid"
 )
 
 // Store — то, что сервису нужно от хранилища лидов
 type Store interface {
 	Create(ctx context.Context, l Lead) (Lead, error)
+	Get(ctx context.Context, id uuid.UUID) (Lead, error)
+	List(ctx context.Context, f ListFilter) ([]Lead, error)
 }
 
 // Service — бизнес-логика лидов
@@ -61,4 +64,44 @@ func (s *Service) Create(ctx context.Context, in CreateInput) (Lead, error) {
 	}
 
 	return s.store.Create(ctx, lead)
+}
+
+// Get возвращает лида по id
+func (s *Service) Get(ctx context.Context, id uuid.UUID) (Lead, error) {
+	return s.store.Get(ctx, id)
+}
+
+// Размер страницы списка лидов
+const (
+	defaultLimit = 50
+	maxLimit     = 100
+)
+
+// ListFilter — фильтры и страница для списка лидов. Пустые поля не фильтруют
+type ListFilter struct {
+	SourceCode string
+	OwnerID    uuid.UUID
+	Stage      Stage
+	Limit      int
+	Offset     int
+}
+
+// List возвращает страницу лидов, подходящих под фильтр, — сначала новые
+func (s *Service) List(ctx context.Context, f ListFilter) ([]Lead, error) {
+	if f.Stage != "" && !f.Stage.Valid() {
+		return nil, fmt.Errorf("unknown stage %q: %w", f.Stage, apperr.ErrInvalid)
+	}
+
+	if f.Limit == 0 {
+		f.Limit = defaultLimit
+	}
+	if f.Limit < 1 || f.Limit > maxLimit {
+		return nil, fmt.Errorf("limit must be between 1 and %d: %w", maxLimit, apperr.ErrInvalid)
+	}
+
+	if f.Offset < 0 {
+		return nil, fmt.Errorf("offset must not be negative: %w", apperr.ErrInvalid)
+	}
+
+	return s.store.List(ctx, f)
 }

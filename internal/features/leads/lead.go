@@ -90,3 +90,12 @@ func cleanOptional(s *string) *string {
 
 	return &v
 }
+
+// Valid сообщает, является ли s одной из стадий воронки
+func (s Stage) Valid() bool {
+	switch s {
+	case StageNew, StageQualified, StageProposal, StageWon, StageLost:
+		return true
+	}
+	return false
+}

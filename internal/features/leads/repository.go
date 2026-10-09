@@ -2,8 +2,12 @@ package leads
 
 import (
 	"context"
+	"errors"
 	"fmt"
+	"strings"
 
+	"github.com/google/uuid"
+	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 
 	"github.com/Aleksandr5325/crm-mini/internal/core/apperr"
@@ -62,4 +66,87 @@ func (r *Repository) Create(ctx context.Context, l Lead) (Lead, error) {
 	}
 
 	return l, nil
+}
+
+// leadColumns — колонки лида в том порядке, в котором их читает scanLead
+const leadColumns = `id, number, external_id, version, source_code, owner_id, current_stage, full_name, phone, email, comment, created_at, updated_at`
+
+// scanner — то, из чего можно прочитать строку: pgx.Row или pgx.Rows
+type scanner interface {
+	Scan(dest ...any) error
+}
+
+// scanLead раскладывает строку из базы по полям лида
+func scanLead(row scanner) (Lead, error) {
+	var l Lead
+	err := row.Scan(
+		&l.ID, &l.Number, &l.ExternalID, &l.Version, &l.SourceCode, &l.OwnerID, &l.CurrentStage,
+		&l.FullName, &l.Phone, &l.Email, &l.Comment, &l.CreatedAt, &l.UpdatedAt,
+	)
+
+	return l, err
+}
+
+// Get возвращает лида по id. Удалённых не возвращает
+func (r *Repository) Get(ctx context.Context, id uuid.UUID) (Lead, error) {
+	row := r.pool.QueryRow(ctx,
+		`SELECT `+leadColumns+` FROM crm.leads WHERE id = $1 AND deleted_at IS NULL`,
+		id,
+	)
+
+	l, err := scanLead(row)
+	if errors.Is(err, pgx.ErrNoRows) {
+		return Lead{}, fmt.Errorf("lead %s: %w", id, apperr.ErrNotFound)
+	}
+	if err != nil {
+		return Lead{}, fmt.Errorf("select lead: %w", err)
+	}
+
+	return l, nil
+}
+
+// List возвращает страницу лидов по фильтру, сначала новые. Удалённых не возвращает
+func (r *Repository) List(ctx context.Context, f ListFilter) ([]Lead, error) {
+	where := []string{"deleted_at IS NULL"}
+	var args []any
+
+	if f.SourceCode != "" {
+		args = append(args, f.SourceCode)
+		where = append(where, fmt.Sprintf("source_code = $%d", len(args)))
+	}
+	if f.OwnerID != uuid.Nil {
+		args = append(args, f.OwnerID)
+		where = append(where, fmt.Sprintf("owner_id = $%d", len(args)))
+	}
+	if f.Stage != "" {
+		args = append(args, f.Stage)
+		where = append(where, fmt.Sprintf("current_stage = $%d", len(args)))
+	}
+
+	args = append(args, f.Limit, f.Offset)
+	query := fmt.Sprintf(
+		`SELECT %s FROM crm.leads WHERE %s ORDER BY number DESC LIMIT $%d OFFSET $%d`,
+		leadColumns, strings.Join(where, " AND "), len(args)-1, len(args),
+	)
+
+	rows, err := r.pool.Query(ctx, query, args...)
+	if err != nil {
+		return nil, fmt.Errorf("query leads: %w", err)
+	}
+	defer rows.Close()
+
+	result := []Lead{}
+	for rows.Next() {
+		l, err := scanLead(rows)
+		if err != nil {
+			return nil, fmt.Errorf("scan lead: %w", err)
+		}
+		result = append(result, l)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, fmt.Errorf("read leads: %w", err)
+	}
+
+	return result, nil
 }
