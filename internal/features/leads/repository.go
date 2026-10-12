@@ -208,3 +208,50 @@ func (r *Repository) SoftDelete(ctx context.Context, id uuid.UUID, at time.Time)
 
 	return nil
 }
+
+// MoveStage переводит лида в стадию to и пишет историю — всё в одной транзакции:
+// меняет current_stage (с проверкой версии), закрывает открытую стадию и открывает новую
+func (r *Repository) MoveStage(ctx context.Context, l Lead, to Stage, at time.Time) (Lead, error) {
+	tx, err := r.pool.Begin(ctx)
+	if err != nil {
+		return Lead{}, fmt.Errorf("begin tx: %w", err)
+	}
+	defer tx.Rollback(ctx)
+
+	row := tx.QueryRow(ctx, `
+		UPDATE crm.leads
+		SET current_stage = $3, updated_at = $4, version = version + 1
+		WHERE id = $1 AND version = $2 AND deleted_at IS NULL
+		RETURNING `+leadColumns,
+		l.ID, l.Version, to, at,
+	)
+	moved, err := scanLead(row)
+	if errors.Is(err, pgx.ErrNoRows) {
+		return Lead{}, fmt.Errorf("lead %s was changed by someone else, reload it: %w", l.ID, apperr.ErrConflict)
+	}
+	if err != nil {
+		return Lead{}, fmt.Errorf("update lead stage: %w", err)
+	}
+
+	_, err = tx.Exec(ctx,
+		`UPDATE crm.lead_stages SET left_at = $2 WHERE lead_id = $1 AND left_at IS NULL`,
+		l.ID, at,
+	)
+	if err != nil {
+		return Lead{}, fmt.Errorf("close current stage: %w", err)
+	}
+
+	_, err = tx.Exec(ctx,
+		`INSERT INTO crm.lead_stages (lead_id, stage, entered_at) VALUES ($1, $2, $3)`,
+		l.ID, to, at,
+	)
+	if err != nil {
+		return Lead{}, fmt.Errorf("open new stage: %w", err)
+	}
+
+	if err := tx.Commit(ctx); err != nil {
+		return Lead{}, fmt.Errorf("commit: %w", err)
+	}
+
+	return moved, nil
+}

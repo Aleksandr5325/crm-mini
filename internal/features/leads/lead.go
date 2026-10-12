@@ -99,3 +99,28 @@ func (s Stage) Valid() bool {
 	}
 	return false
 }
+
+// nextStage — следующая стадия воронки для каждой незакрытой стадии
+var nextStage = map[Stage]Stage{
+	StageNew:       StageQualified,
+	StageQualified: StageProposal,
+	StageProposal:  StageWon,
+}
+
+// CanMoveTo проверяет правила воронки: двигаться можно только на одну стадию вперёд,
+// в lost — из любой незакрытой стадии, а из won и lost — никуда
+func (s Stage) CanMoveTo(next Stage) error {
+	if s == StageWon || s == StageLost {
+		return fmt.Errorf("lead is already closed as %q: %w", s, apperr.ErrConflict)
+	}
+
+	if next == StageLost {
+		return nil
+	}
+
+	if want := nextStage[s]; next != want {
+		return fmt.Errorf("cannot move from %q to %q, next stage is %q: %w", s, next, want, apperr.ErrConflict)
+	}
+
+	return nil
+}

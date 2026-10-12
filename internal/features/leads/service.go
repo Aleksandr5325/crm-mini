@@ -18,6 +18,7 @@ type Store interface {
 	List(ctx context.Context, f ListFilter) ([]Lead, error)
 	Update(ctx context.Context, l Lead) (Lead, error)
 	SoftDelete(ctx context.Context, id uuid.UUID, at time.Time) error
+	MoveStage(ctx context.Context, l Lead, to Stage, at time.Time) (Lead, error)
 }
 
 // Service — бизнес-логика лидов
@@ -177,4 +178,36 @@ func (s *Service) Update(ctx context.Context, id uuid.UUID, in UpdateInput) (Lea
 // Delete мягко удаляет лида: он пропадает из API, но остаётся в базе вместе с историей
 func (s *Service) Delete(ctx context.Context, id uuid.UUID) error {
 	return s.store.SoftDelete(ctx, id, time.Now().UTC().Truncate(time.Microsecond))
+}
+
+// MoveStageInput — запрос на смену стадии
+type MoveStageInput struct {
+	Version int64 `json:"version"`
+	Stage   Stage `json:"stage"`
+}
+
+// MoveStage переводит лида в новую стадию по правилам воронки
+func (s *Service) MoveStage(ctx context.Context, id uuid.UUID, in MoveStageInput) (Lead, error) {
+	if in.Version < 1 {
+		return Lead{}, fmt.Errorf("version is required: %w", apperr.ErrInvalid)
+	}
+	if !in.Stage.Valid() {
+		return Lead{}, fmt.Errorf("unknown stage %q: %w", in.Stage, apperr.ErrInvalid)
+	}
+
+	lead, err := s.store.Get(ctx, id)
+	if err != nil {
+		return Lead{}, err
+	}
+
+	if lead.Version != in.Version {
+		return Lead{}, fmt.Errorf("lead %s was changed by someone else (current version %d, yours %d), reload it: %w",
+			id, lead.Version, in.Version, apperr.ErrConflict)
+	}
+
+	if err := lead.CurrentStage.CanMoveTo(in.Stage); err != nil {
+		return Lead{}, err
+	}
+
+	return s.store.MoveStage(ctx, lead, in.Stage, time.Now().UTC().Truncate(time.Microsecond))
 }
