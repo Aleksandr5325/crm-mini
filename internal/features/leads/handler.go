@@ -28,6 +28,7 @@ func (h *Handler) Register(mux *http.ServeMux) {
 	mux.HandleFunc("GET /api/v1/leads", h.list)
 	mux.HandleFunc("PATCH /api/v1/leads/{id}", h.update)
 	mux.HandleFunc("DELETE /api/v1/leads/{id}", h.remove)
+	mux.HandleFunc("POST /api/v1/leads/{id}/stage", h.moveStage)
 }
 
 // create обрабатывает POST /api/v1/leads: создаёт лида в стадии new
@@ -138,4 +139,28 @@ func (h *Handler) remove(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.WriteHeader(http.StatusNoContent)
+}
+
+// moveStage обрабатывает POST /api/v1/leads/{id}/stage: переводит лида в другую стадию
+// Отвечает 200 с лидом, 409 если правила воронки не разрешают переход или версия устарела
+func (h *Handler) moveStage(w http.ResponseWriter, r *http.Request) {
+	id, err := uuid.Parse(r.PathValue("id"))
+	if err != nil {
+		respond.Error(w, r, fmt.Errorf("invalid lead id: %w", apperr.ErrInvalid))
+		return
+	}
+
+	var in MoveStageInput
+	if err := request.DecodeJSON(w, r, &in); err != nil {
+		respond.Error(w, r, err)
+		return
+	}
+
+	lead, err := h.service.MoveStage(r.Context(), id, in)
+	if err != nil {
+		respond.Error(w, r, err)
+		return
+	}
+
+	respond.JSON(w, r, http.StatusOK, lead)
 }
