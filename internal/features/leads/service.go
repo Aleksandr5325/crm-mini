@@ -17,6 +17,7 @@ type Store interface {
 	Get(ctx context.Context, id uuid.UUID) (Lead, error)
 	List(ctx context.Context, f ListFilter) ([]Lead, error)
 	Update(ctx context.Context, l Lead) (Lead, error)
+	SoftDelete(ctx context.Context, id uuid.UUID, at time.Time) error
 }
 
 // Service — бизнес-логика лидов
@@ -171,4 +172,9 @@ func (s *Service) Update(ctx context.Context, id uuid.UUID, in UpdateInput) (Lea
 	lead.UpdatedAt = time.Now().UTC().Truncate(time.Microsecond)
 
 	return s.store.Update(ctx, lead)
+}
+
+// Delete мягко удаляет лида: он пропадает из API, но остаётся в базе вместе с историей
+func (s *Service) Delete(ctx context.Context, id uuid.UUID) error {
+	return s.store.SoftDelete(ctx, id, time.Now().UTC().Truncate(time.Microsecond))
 }

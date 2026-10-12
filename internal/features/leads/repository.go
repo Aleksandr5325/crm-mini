@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"strings"
+	"time"
 
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5"
@@ -186,4 +187,24 @@ func (r *Repository) Update(ctx context.Context, l Lead) (Lead, error) {
 	}
 
 	return l, nil
+}
+
+// SoftDelete помечает лида удалённым. Строка и её история остаются в базе
+// Если лида нет или он уже удалён — возвращает apperr.ErrNotFound
+func (r *Repository) SoftDelete(ctx context.Context, id uuid.UUID, at time.Time) error {
+	tag, err := r.pool.Exec(ctx, `
+		UPDATE crm.leads
+		SET deleted_at = $2, updated_at = $2, version = version + 1
+		WHERE id = $1 AND deleted_at IS NULL`,
+		id, at,
+	)
+	if err != nil {
+		return fmt.Errorf("soft delete lead: %w", err)
+	}
+
+	if tag.RowsAffected() == 0 {
+		return fmt.Errorf("lead %s: %w", id, apperr.ErrNotFound)
+	}
+
+	return nil
 }

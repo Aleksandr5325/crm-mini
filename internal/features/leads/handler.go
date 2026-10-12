@@ -27,6 +27,7 @@ func (h *Handler) Register(mux *http.ServeMux) {
 	mux.HandleFunc("GET /api/v1/leads/{id}", h.get)
 	mux.HandleFunc("GET /api/v1/leads", h.list)
 	mux.HandleFunc("PATCH /api/v1/leads/{id}", h.update)
+	mux.HandleFunc("DELETE /api/v1/leads/{id}", h.remove)
 }
 
 // create обрабатывает POST /api/v1/leads: создаёт лида в стадии new
@@ -121,4 +122,20 @@ func (h *Handler) update(w http.ResponseWriter, r *http.Request) {
 	}
 
 	respond.JSON(w, r, http.StatusOK, lead)
+}
+
+// remove обрабатывает DELETE /api/v1/leads/{id}: мягко удаляет лида. Отвечает 204 без тела
+func (h *Handler) remove(w http.ResponseWriter, r *http.Request) {
+	id, err := uuid.Parse(r.PathValue("id"))
+	if err != nil {
+		respond.Error(w, r, fmt.Errorf("invalid lead id: %w", apperr.ErrInvalid))
+		return
+	}
+
+	if err := h.service.Delete(r.Context(), id); err != nil {
+		respond.Error(w, r, err)
+		return
+	}
+
+	w.WriteHeader(http.StatusNoContent)
 }
