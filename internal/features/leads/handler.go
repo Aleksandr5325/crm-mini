@@ -26,6 +26,7 @@ func (h *Handler) Register(mux *http.ServeMux) {
 	mux.HandleFunc("POST /api/v1/leads", h.create)
 	mux.HandleFunc("GET /api/v1/leads/{id}", h.get)
 	mux.HandleFunc("GET /api/v1/leads", h.list)
+	mux.HandleFunc("PATCH /api/v1/leads/{id}", h.update)
 }
 
 // create обрабатывает POST /api/v1/leads: создаёт лида в стадии new
@@ -96,4 +97,28 @@ func (h *Handler) list(w http.ResponseWriter, r *http.Request) {
 	}
 
 	respond.JSON(w, r, http.StatusOK, leads)
+}
+
+// update обрабатывает PATCH /api/v1/leads/{id}: меняет присланные поля лида
+// Отвечает 200 с обновлённым лидом, 409 если версия устарела
+func (h *Handler) update(w http.ResponseWriter, r *http.Request) {
+	id, err := uuid.Parse(r.PathValue("id"))
+	if err != nil {
+		respond.Error(w, r, fmt.Errorf("invalid lead id: %w", apperr.ErrInvalid))
+		return
+	}
+
+	var in UpdateInput
+	if err := request.DecodeJSON(w, r, &in); err != nil {
+		respond.Error(w, r, err)
+		return
+	}
+
+	lead, err := h.service.Update(r.Context(), id, in)
+	if err != nil {
+		respond.Error(w, r, err)
+		return
+	}
+
+	respond.JSON(w, r, http.StatusOK, lead)
 }
