@@ -41,13 +41,8 @@ func (r *Repository) Create(ctx context.Context, l Lead) (Lead, error) {
 		l.ID, l.SourceCode, l.OwnerID, l.CurrentStage, l.FullName,
 		l.Phone, l.Email, l.Comment, l.CreatedAt, l.UpdatedAt,
 	).Scan(&l.Number, &l.Version)
-	if constraint, ok := postgres.ForeignKeyViolation(err); ok {
-		switch constraint {
-		case "leads_source_code_fkey":
-			return Lead{}, fmt.Errorf("source %q not found: %w", l.SourceCode, apperr.ErrInvalid)
-		case "leads_owner_id_fkey":
-			return Lead{}, fmt.Errorf("owner %s not found: %w", l.OwnerID, apperr.ErrInvalid)
-		}
+	if fkErr := leadFKError(err, l); fkErr != nil {
+		return Lead{}, fkErr
 	}
 	if err != nil {
 		return Lead{}, fmt.Errorf("insert lead: %w", err)
@@ -149,4 +144,46 @@ func (r *Repository) List(ctx context.Context, f ListFilter) ([]Lead, error) {
 	}
 
 	return result, nil
+}
+
+// leadFKError переводит нарушение внешних ключей лида в понятную ошибку
+// Если внешний ключ не нарушен — возвращает nil
+func leadFKError(err error, l Lead) error {
+	constraint, ok := postgres.ForeignKeyViolation(err)
+	if !ok {
+		return nil
+	}
+
+	switch constraint {
+	case "leads_source_code_fkey":
+		return fmt.Errorf("source %q not found: %w", l.SourceCode, apperr.ErrInvalid)
+	case "leads_owner_id_fkey":
+		return fmt.Errorf("owner %s not found: %w", l.OwnerID, apperr.ErrInvalid)
+	}
+
+	return nil
+}
+
+// Update сохраняет изменения лида, только если его версия в базе всё ещё равна l.Version
+// Если кто-то успел изменить лида раньше — возвращает apperr.ErrConflict
+func (r *Repository) Update(ctx context.Context, l Lead) (Lead, error) {
+	err := r.pool.QueryRow(ctx, `
+		UPDATE crm.leads
+		SET source_code = $3, owner_id = $4, full_name = $5, phone = $6, email = $7, comment = $8, 
+			updated_at = $9, version = version + 1
+		WHERE id = $1 AND version = $2 AND deleted_at IS NULL
+		RETURNING version`,
+		l.ID, l.Version, l.SourceCode, l.OwnerID, l.FullName, l.Phone, l.Email, l.Comment, l.UpdatedAt,
+	).Scan(&l.Version)
+	if errors.Is(err, pgx.ErrNoRows) {
+		return Lead{}, fmt.Errorf("lead %s was changed by someone else, reload it: %w", l.ID, apperr.ErrConflict)
+	}
+	if fkErr := leadFKError(err, l); fkErr != nil {
+		return Lead{}, fkErr
+	}
+	if err != nil {
+		return Lead{}, fmt.Errorf("update lead: %w", err)
+	}
+
+	return l, nil
 }
