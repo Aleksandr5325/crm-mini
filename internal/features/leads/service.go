@@ -19,6 +19,7 @@ type Store interface {
 	Update(ctx context.Context, l Lead) (Lead, error)
 	SoftDelete(ctx context.Context, id uuid.UUID, at time.Time) error
 	MoveStage(ctx context.Context, l Lead, to Stage, at time.Time) (Lead, error)
+	Import(ctx context.Context, b importBatch) (ImportResult, error)
 }
 
 // Service — бизнес-логика лидов

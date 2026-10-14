@@ -2,6 +2,7 @@ package leads
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 
 	"github.com/google/uuid"
@@ -29,6 +30,7 @@ func (h *Handler) Register(mux *http.ServeMux) {
 	mux.HandleFunc("PATCH /api/v1/leads/{id}", h.update)
 	mux.HandleFunc("DELETE /api/v1/leads/{id}", h.remove)
 	mux.HandleFunc("POST /api/v1/leads/{id}/stage", h.moveStage)
+	mux.HandleFunc("POST /api/v1/leads/import", h.importLeads)
 }
 
 // create обрабатывает POST /api/v1/leads: создаёт лида в стадии new
@@ -163,4 +165,25 @@ func (h *Handler) moveStage(w http.ResponseWriter, r *http.Request) {
 	}
 
 	respond.JSON(w, r, http.StatusOK, lead)
+}
+
+// maxImportSize — максимальный размер файла импорта: 10 МБ
+const maxImportSize = 10 << 20
+
+// importLeads обрабатывает POST /api/v1/leads/import: загружает выгрузку лидов из 1С
+// Отвечает 200 с числом загруженных и пропущенных лидов, 409 если этот файл уже загружали
+func (h *Handler) importLeads(w http.ResponseWriter, r *http.Request) {
+	data, err := io.ReadAll(http.MaxBytesReader(w, r.Body, maxImportSize))
+	if err != nil {
+		respond.Error(w, r, fmt.Errorf("read import file: %v: %w", err, apperr.ErrInvalid))
+		return
+	}
+
+	res, err := h.service.Import(r.Context(), data)
+	if err != nil {
+		respond.Error(w, r, err)
+		return
+	}
+
+	respond.JSON(w, r, http.StatusOK, res)
 }

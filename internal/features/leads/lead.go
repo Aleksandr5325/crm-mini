@@ -54,6 +54,11 @@ func (l Lead) Validate() error {
 		return fmt.Errorf("owner_id is required: %w", apperr.ErrInvalid)
 	}
 
+	return l.validateDetails()
+}
+
+// validateDetails проверяет имя и контакты лида
+func (l Lead) validateDetails() error {
 	if n := utf8.RuneCountInString(l.FullName); n < 1 || n > 255 {
 		return fmt.Errorf("full_name must be 1-255 characters long: %w", apperr.ErrInvalid)
 	}
