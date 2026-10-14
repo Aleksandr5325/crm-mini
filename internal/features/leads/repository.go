@@ -255,3 +255,130 @@ func (r *Repository) MoveStage(ctx context.Context, l Lead, to Stage, at time.Ti
 
 	return moved, nil
 }
+
+// Import записывает весь файл импорта в одной транзакции. Первым делом сохраняет хеш файла:
+// если такой уже есть — apperr.ErrConflict. Лиды, чей external_id уже есть в базе, пропускает
+func (r *Repository) Import(ctx context.Context, b importBatch) (ImportResult, error) {
+	tx, err := r.pool.Begin(ctx)
+	if err != nil {
+		return ImportResult{}, fmt.Errorf("begin: %w", err)
+	}
+	defer tx.Rollback(ctx)
+
+	var logID int64
+	err = tx.QueryRow(ctx,
+		`INSERT INTO crm.import_logs (file_hash, rows_imported, imported_at) VALUES ($1, 0, $2) RETURNING id`,
+		b.FileHash, b.ImportedAt,
+	).Scan(&logID)
+	if postgres.IsUniqueViolation(err) {
+		return ImportResult{}, fmt.Errorf("this file has already been imported: %w", apperr.ErrConflict)
+	}
+	if err != nil {
+		return ImportResult{}, fmt.Errorf("insert import log: %w", err)
+	}
+
+	for _, s := range b.Sources {
+		_, err := tx.Exec(ctx,
+			`INSERT INTO crm.sources (code, name) VALUES ($1, $2) ON CONFLICT (code) DO NOTHING`,
+			s.Code, s.Name,
+		)
+		if err != nil {
+			return ImportResult{}, fmt.Errorf("insert sources %q: %w", s.Code, err)
+		}
+	}
+
+	owners := map[string]uuid.UUID{}
+	var res ImportResult
+
+	for _, item := range b.Leads {
+		l := item.Lead
+
+		ownerID, ok := owners[item.Owner]
+		if !ok {
+			ownerID, err = findOrCreateEmployee(ctx, tx, item.Owner, b.ImportedAt)
+			if err != nil {
+				return ImportResult{}, err
+			}
+			owners[item.Owner] = ownerID
+		}
+		l.OwnerID = ownerID
+
+		l.ID, err = uuid.NewV7()
+		if err != nil {
+			return ImportResult{}, fmt.Errorf("generate lead id: %w", err)
+		}
+
+		err = tx.QueryRow(ctx, `
+			INSERT INTO crm.leads
+				(id, external_id, source_code, owner_id, current_stage, full_name, phone, email, comment, created_at, updated_at)
+			VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+			ON CONFLICT (external_id) DO NOTHING
+			RETURNING id`,
+			l.ID, l.ExternalID, l.SourceCode, l.OwnerID, l.CurrentStage, l.FullName,
+			l.Phone, l.Email, l.Comment, l.CreatedAt, l.UpdatedAt,
+		).Scan(&l.ID)
+		if errors.Is(err, pgx.ErrNoRows) {
+			res.Skipped++
+			continue
+		}
+		if fkErr := leadFKError(err, l); fkErr != nil {
+			return ImportResult{}, fmt.Errorf("lead %s: %w", *l.ExternalID, fkErr)
+		}
+		if err != nil {
+			return ImportResult{}, fmt.Errorf("insert lead %s: %w", *l.ExternalID, err)
+		}
+
+		for _, st := range item.Stages {
+			_, err := tx.Exec(ctx,
+				`INSERT INTO crm.lead_stages (lead_id, stage, entered_at, left_at) VALUES ($1, $2, $3, $4)`,
+				l.ID, st.Stage, st.EnteredAt, st.LeftAt,
+			)
+			if err != nil {
+				return ImportResult{}, fmt.Errorf("insert stage history of lead %s: %w", *l.ExternalID, err)
+			}
+		}
+
+		res.Imported++
+	}
+
+	_, err = tx.Exec(ctx, `UPDATE crm.import_logs SET rows_imported = $2 WHERE id = $1`, logID, res.Imported)
+	if err != nil {
+		return ImportResult{}, fmt.Errorf("update import log: %w", err)
+	}
+
+	if err := tx.Commit(ctx); err != nil {
+		return ImportResult{}, fmt.Errorf("commit: %w", err)
+	}
+
+	return res, nil
+}
+
+// findOrCreateEmployee возвращает id сотрудника с таким ФИО, а если его нет — создаёт
+func findOrCreateEmployee(ctx context.Context, tx pgx.Tx, fullName string, at time.Time) (uuid.UUID, error) {
+	var id uuid.UUID
+	err := tx.QueryRow(ctx,
+		`SELECT id FROM crm.employees WHERE full_name = $1 ORDER BY created_at LIMIT 1`,
+		fullName,
+	).Scan(&id)
+	if err == nil {
+		return id, nil
+	}
+	if !errors.Is(err, pgx.ErrNoRows) {
+		return uuid.Nil, fmt.Errorf("find employee %q: %w", fullName, err)
+	}
+
+	id, err = uuid.NewV7()
+	if err != nil {
+		return uuid.Nil, fmt.Errorf("generate employee id: %w", err)
+	}
+
+	_, err = tx.Exec(ctx,
+		`INSERT INTO crm.employees (id, full_name, created_at) VALUES ($1, $2, $3)`,
+		id, fullName, at,
+	)
+	if err != nil {
+		return uuid.Nil, fmt.Errorf("create employee %q: %w", fullName, err)
+	}
+
+	return id, nil
+}
