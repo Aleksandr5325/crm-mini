@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"go.uber.org/zap"
 
@@ -14,6 +15,7 @@ import (
 	"github.com/Aleksandr5325/crm-mini/internal/core/logger"
 	"github.com/Aleksandr5325/crm-mini/internal/core/middleware"
 	"github.com/Aleksandr5325/crm-mini/internal/core/postgres"
+	"github.com/Aleksandr5325/crm-mini/internal/features/employees"
 	"github.com/Aleksandr5325/crm-mini/internal/features/health"
 	"github.com/Aleksandr5325/crm-mini/internal/features/leads"
 	"github.com/Aleksandr5325/crm-mini/internal/features/reports"
@@ -21,6 +23,7 @@ import (
 )
 
 func main() {
+	time.Local = time.UTC
 	if err := run(); err != nil {
 		fmt.Fprintln(os.Stderr, "error:", err)
 		os.Exit(1)
@@ -69,6 +72,10 @@ func run() error {
 	sourcesRepo := sources.NewRepository(pool)
 	sourcesService := sources.NewService(sourcesRepo)
 	sources.NewHandler(sourcesService).Register(mux)
+
+	employeesRepo := employees.NewRepository(pool)
+	employeesService := employees.NewService(employeesRepo)
+	employees.NewHandler(employeesService).Register(mux)
 
 	leadsRepo := leads.NewRepository(pool)
 	leadsService := leads.NewService(leadsRepo)
