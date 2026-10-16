@@ -382,3 +382,39 @@ func findOrCreateEmployee(ctx context.Context, tx pgx.Tx, fullName string, at ti
 
 	return id, nil
 }
+
+// Stages возвращает историю стадий лида по порядку.
+// У каждого лида есть хотя бы одна стадия, поэтому пустая история значит, что лида нет — apperr.ErrNotFound
+func (r *Repository) Stages(ctx context.Context, id uuid.UUID) ([]StagePeriod, error) {
+	rows, err := r.pool.Query(ctx, `
+		SELECT ls.stage, ls.entered_at, ls.left_at
+		FROM crm.lead_stages ls
+		JOIN crm.leads l ON l.id = ls.lead_id
+		WHERE ls.lead_id = $1 AND l.deleted_at IS NULL
+		ORDER BY ls.entered_at`,
+		id,
+	)
+	if err != nil {
+		return nil, fmt.Errorf("query lead stages: %w", err)
+	}
+	defer rows.Close()
+
+	result := []StagePeriod{}
+	for rows.Next() {
+		var p StagePeriod
+		if err := rows.Scan(&p.Stage, &p.EnteredAt, &p.LeftAt); err != nil {
+			return nil, fmt.Errorf("scan lead stages: %w", err)
+		}
+		result = append(result, p)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, fmt.Errorf("read lead stages: %w", err)
+	}
+
+	if len(result) == 0 {
+		return nil, fmt.Errorf("lead %s: %w", id, apperr.ErrNotFound)
+	}
+
+	return result, nil
+}

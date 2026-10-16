@@ -20,6 +20,7 @@ type Store interface {
 	SoftDelete(ctx context.Context, id uuid.UUID, at time.Time) error
 	MoveStage(ctx context.Context, l Lead, to Stage, at time.Time) (Lead, error)
 	Import(ctx context.Context, b importBatch) (ImportResult, error)
+	Stages(ctx context.Context, id uuid.UUID) ([]StagePeriod, error)
 }
 
 // Service — бизнес-логика лидов
@@ -211,4 +212,9 @@ func (s *Service) MoveStage(ctx context.Context, id uuid.UUID, in MoveStageInput
 	}
 
 	return s.store.MoveStage(ctx, lead, in.Stage, time.Now().UTC().Truncate(time.Microsecond))
+}
+
+// Stages возвращает историю стадий лида
+func (s *Service) Stages(ctx context.Context, id uuid.UUID) ([]StagePeriod, error) {
+	return s.store.Stages(ctx, id)
 }

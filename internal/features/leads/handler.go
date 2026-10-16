@@ -31,6 +31,7 @@ func (h *Handler) Register(mux *http.ServeMux) {
 	mux.HandleFunc("DELETE /api/v1/leads/{id}", h.remove)
 	mux.HandleFunc("POST /api/v1/leads/{id}/stage", h.moveStage)
 	mux.HandleFunc("POST /api/v1/leads/import", h.importLeads)
+	mux.HandleFunc("GET /api/v1/leads/{id}/stages", h.stages)
 }
 
 // create обрабатывает POST /api/v1/leads: создаёт лида в стадии new
@@ -186,4 +187,21 @@ func (h *Handler) importLeads(w http.ResponseWriter, r *http.Request) {
 	}
 
 	respond.JSON(w, r, http.StatusOK, res)
+}
+
+// stages обрабатывает GET /api/v1/leads/{id}/stages: история стадий лида по порядку
+func (h *Handler) stages(w http.ResponseWriter, r *http.Request) {
+	id, err := uuid.Parse(r.PathValue("id"))
+	if err != nil {
+		respond.Error(w, r, fmt.Errorf("invalid lead id: %w", apperr.ErrInvalid))
+		return
+	}
+
+	history, err := h.service.Stages(r.Context(), id)
+	if err != nil {
+		respond.Error(w, r, err)
+		return
+	}
+
+	respond.JSON(w, r, http.StatusOK, history)
 }
