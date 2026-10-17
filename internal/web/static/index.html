@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRM-mini</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233b5bdb'/%3E%3Cpath d='M8 9h16l-6 8v6l-4 2v-8z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/app.css">
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="#/leads">
+        <span class="brand__mark" aria-hidden="true"></span>
+        CRM-mini
+      </a>
+      <nav class="nav" aria-label="Разделы">
+        <a href="#/leads" data-nav="leads">Лиды</a>
+        <a href="#/board" data-nav="board">Канбан</a>
+        <a href="#/report" data-nav="report">Отчёт</a>
+        <a href="#/sources" data-nav="sources">Источники</a>
+        <a href="#/import" data-nav="import">Импорт</a>
+      </nav>
+      <span class="health" id="health" title="Состояние сервиса и базы данных">
+        <span class="health__dot"></span>
+        <span class="health__text">проверка…</span>
+      </span>
+    </div>
+  </header>
+
+  <main class="page" id="app"></main>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+</body>
+</html>
