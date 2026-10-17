@@ -46,7 +46,7 @@ stats AS (
 		count(DISTINCT p.lead_id) 						  AS reached,
 		count(p.lead_id) FILTER (WHERE p.left_at IS NULL) AS current,
 		avg(extract(epoch FROM p.left_at - p.entered_at) / 86400)
-			FILTER (WHERE p.left_at IS NULL)              AS avg_days
+			FILTER (WHERE p.left_at IS NOT NULL)              AS avg_days
 	FROM stages s
 	LEFT JOIN periods p ON p.stage = s.stage
 	GROUP BY s.stage, s.ord
