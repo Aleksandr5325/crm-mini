@@ -1,7 +1,0 @@
-[
-  { "code": "site",       "name": "Сайт компании" },
-  { "code": "olymp",      "name": "Олимпиады/Конференции" },
-  { "code": "aggregator", "name": "Агрегаторы/Партнёры" },
-  { "code": "ads",        "name": "Реклама" },
-  { "code": "referral",   "name": "Рекомендации" }
-]
