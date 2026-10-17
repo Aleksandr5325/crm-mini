@@ -16,7 +16,7 @@ jobs:
           go-version-file: go.mod
       
       - name: gofmt
-        run: test -z "$(gofmt -l cmd internal/core internal/features)"
+        run: test -z "$(gofmt -l .)"
 
       - name: go vet
         run: go vet ./...
