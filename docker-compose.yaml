@@ -7,7 +7,12 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
     volumes:
-      - ${PROJECT_ROOT}/out/pgdata:/var/lib/postgresql
+      - ./out/pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 2s
+      timeout: 3s
+      retries: 15
     restart: always
   
   port-forwarder:
@@ -16,8 +21,33 @@ services:
     command: tcp-listen:5432,fork,reuseaddr tcp-connect:crm-postgres:5432
     ports:
       - "127.0.0.1:5432:5432"
+    profiles: [dev]
   
   crm-postgres-migrate:
     image: migrate/migrate:v4.19.1
     volumes:
-      - ${PROJECT_ROOT}/migrations:/migrations
+      - ./migrations:/migrations
+    command:
+      - -path=/migrations
+      - -database=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@crm-postgres:5432/${POSTGRES_DB}?sslmode=disable&search_path=public
+      - up
+    depends_on:
+      crm-postgres:
+        condition: service_healthy
+  
+  crm:
+    build: .
+    container_name: crm-app
+    env_file: .env
+    environment:
+      - POSTGRES_HOST=crm-postgres
+      - HTTP_ADDR=:8080
+      - LOGGER_JSON=true
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      crm-postgres:
+        condition: service_healthy
+      crm-postgres-migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
