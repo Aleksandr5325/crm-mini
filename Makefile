@@ -66,3 +66,8 @@ migrate-action:
 crm-run: ## Go-приложение: запустить локально.
 	@POSTGRES_HOST=127.0.0.1 HTTP_ADDR=127.0.0.1:8080 go run ./cmd/crm
 
+crm-deploy: ## Go-приложение: собрать образ и запустить всё в Docker
+	@docker compose up -d --build crm
+
+crm-undeploy: ## Go-приложение: остановить контейнер приложения
+	@docker compose stop crm

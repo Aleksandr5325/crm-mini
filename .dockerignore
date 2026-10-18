@@ -1,0 +1,9 @@
+.git
+.github
+.env
+out
+for1c
+1c
+testdata
+*.md
+Dockerfile
