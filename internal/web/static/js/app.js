@@ -24,7 +24,7 @@ const routes = [
 let renderId = 0;
 
 function route() {
-  const hash = location.hash.slice(1) || '/leads';
+  const hash = location.hash.slice(1) || '/board';
   const [path, qs = ''] = hash.split('?');
 
   for (const r of routes) {
@@ -37,12 +37,13 @@ function route() {
 
     const id = ++renderId;
     const ctx = { match, params: new URLSearchParams(qs), alive: () => id === renderId };
+    document.getElementById('crumb').textContent = ({leads:'Все лиды',board:'Воронка продаж',report:'Аналитика',sources:'Источники',import:'Импорт данных'})[r.nav];
     r.render(root, ctx);
     window.scrollTo(0, 0);
     return;
   }
 
-  location.hash = '#/leads';
+  location.hash = '#/board';
 }
 
 async function checkHealth() {

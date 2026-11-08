@@ -91,6 +91,7 @@ export async function renderLeads(root, ctx) {
     tr.addEventListener('click', () => { location.hash = `#/leads/${tr.dataset.id}`; });
   });
   root.querySelector('#new-lead').addEventListener('click', () => newLeadDialog(r));
+  if(ctx.params.get('create')==='1') newLeadDialog(r);
 }
 
 function emptyText(filtered) {
